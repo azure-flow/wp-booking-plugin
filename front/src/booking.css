@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .sinmido-booking-root {
+    @apply sb-font-sans sb-text-gray-900;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "sinmido-booking",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./front/src/booking.css -o ./front/css/booking.css --minify",
+    "watch:css": "npx tailwindcss -i ./front/src/booking.css -o ./front/css/booking.css --watch",
+    "build:admin-css": "npx tailwindcss -c tailwind.admin.config.js -i ./admin/src/admin.css -o ./admin/css/admin-tailwind.css --minify",
+    "watch:admin-css": "npx tailwindcss -c tailwind.admin.config.js -i ./admin/src/admin.css -o ./admin/css/admin-tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

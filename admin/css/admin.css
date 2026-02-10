@@ -1,0 +1,321 @@
+
+.sinmido-booking-wrap .tablenav.top {
+  margin-bottom: 12px;
+}
+.sinmido-booking-wrap .tablenav .bulkactions select {
+  margin-right: 8px;
+}
+
+.sinmido-booking-wrap .wp-list-table .column-name {
+  width: 35%;
+  color: #2271b1;
+}
+.sinmido-booking-wrap .wp-list-table .column-shortcode {
+  width: 42%;
+}
+.sinmido-booking-wrap .wp-list-table .column-date {
+  width: 20%;
+}
+
+.sinmido-booking-wrap .wp-list-table .row-actions {
+  margin-top: 4px;
+  padding: 2px 0 0;
+  font-size: 13px;
+  color: #50575e;
+  left: 0 !important;
+}
+.sinmido-booking-wrap .wp-list-table .row-actions span {
+  margin: 0;
+}
+.sinmido-booking-wrap .wp-list-table .row-actions .separator {
+  margin: 0 6px;
+  color: #c3c4c7;
+}
+.sinmido-booking-wrap .wp-list-table .row-actions a {
+  color: #2271b1;
+  text-decoration: none;
+}
+.sinmido-booking-wrap .wp-list-table .row-actions a:hover {
+  color: #135e96;
+  text-decoration: underline;
+}
+.sinmido-booking-wrap .wp-list-table .row-actions .submitdelete:hover {
+  color: #b32d2e;
+}
+
+.sb-shortcode-code {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 4px 8px;
+  background: #f0f0f1;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.sb-edit-form .required {
+  color: #d63638;
+}
+.sb-edit-form .title {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+.sb-edit-form .form-table th {
+  padding-left: 0;
+}
+
+.sb-copy-shortcode {
+  margin-left: 4px;
+}
+
+.sinmido-booking-wrap .sb-schedule-calendar-grid-wrapper {
+  width: 100%;
+  padding-top: 1rem;
+  box-sizing: border-box;
+}
+.sinmido-booking-wrap
+  .sb-schedule-calendar-grid-wrapper
+  .sb-schedule-calendar-grid {
+  width: 100% !important;
+  table-layout: fixed;
+}
+
+.sinmido-booking-wrap
+  .sb-schedule-calendar-grid-wrapper
+  .sb-schedule-cell-inner {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.5;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.sinmido-booking-wrap .sb-schedule-calendar-grid-wrapper td {
+  cursor: pointer;
+}
+
+.sinmido-booking-wrap .sb-schedule-slot-label {
+  display: block;
+  margin-top: 4px;
+  padding: 4px 6px;
+  font-size: 13px;
+  line-height: 1.2;
+  background: #929292;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.sb-schedule-calendar-grid-wrapper .sb-schedule-calendar-grid th {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+@media (min-width: 1440px) {
+  .sinmido-booking-wrap .wp-list-table .column-cb {
+    width: 3em;
+  }
+  .sinmido-booking-wrap .wp-list-table .column-status {
+    width: 10rem;
+  }
+  .sinmido-booking-wrap
+    .sb-schedule-calendar-grid-wrapper
+    .sb-schedule-cell-inner {
+    font-size: 16px;
+  }
+  .sinmido-booking-wrap .sb-schedule-slot-label {
+    margin-top: 12px;
+    font-size: 15px;
+  }
+  .sb-schedule-calendar-grid-wrapper .sb-schedule-calendar-grid th {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+@media (max-width: 1440px) {
+  .sinmido-booking-wrap .wp-list-table .column-cb {
+    width: 2.2em;
+  }
+  .sinmido-booking-wrap .wp-list-table .column-status {
+    width: 7rem;
+  }
+  .sinmido-booking-wrap
+    .sb-schedule-calendar-grid-wrapper
+    .sb-schedule-cell-inner {
+    padding: 8px;
+    font-size: 13px;
+  }
+  .sb-schedule-calendar-grid-wrapper .sb-schedule-calendar-grid th {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+@media (max-width: 1280px) {
+  .sinmido-booking-wrap
+    .sb-schedule-calendar-grid-wrapper
+    .sb-schedule-cell-inner {
+    padding: 6px;
+    font-size: 12px;
+  }
+  .sb-schedule-calendar-grid-wrapper .sb-schedule-calendar-grid th {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 768px) {
+  .sinmido-booking-wrap
+    .sb-schedule-calendar-grid-wrapper
+    .sb-schedule-cell-inner {
+    padding: 4px;
+    font-size: 10px;
+  }
+  .sb-schedule-calendar-grid-wrapper .sb-schedule-calendar-grid th {
+    font-size: 12px;
+    font-weight: 300;
+  }
+}
+
+@media (max-width: 480px) {
+  .sinmido-booking-wrap
+    .sb-schedule-calendar-grid-wrapper
+    .sb-schedule-cell-inner {
+    padding: 2px;
+    font-size: 8px;
+  }
+}
+
+.sinmido-booking-wrap .sb-tab-panel.sba-hidden {
+  display: none !important;
+}
+
+.sinmido-booking-wrap .sb-event-tabs .nav-tab {
+  margin-bottom: -1px;
+}
+.sinmido-booking-wrap .sb-event-tabs .nav-tab.sb-tab-btn {
+  cursor: pointer;
+}
+
+.sinmido-booking-wrap .required {
+  color: #d63638;
+}
+
+.sinmido-booking-wrap .sb-schedule-delete-select {
+  background: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
+}
+
+.sinmido-booking-wrap .sb-schedule-delete-select:hover {
+  background: white;
+  color: #c82333;
+  border-color: #bd2130;
+}
+
+.sb-reservation-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.sb-reservation-status.sb-status-confirmed {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+.sb-reservation-status.sb-status-tentative {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+.sb-reservation-status.sb-status-cancelled {
+  background: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
+.sb-reservation-status.sb-status-warning {
+  background: #374151;
+  color: #f9fafb;
+  border: 1px solid #4b5563;
+}
+
+.sb-reservation-detail-wrap {
+  max-width: 100%;
+}
+.sb-reservation-detail-wrap .sb-reservation-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 16px;
+}
+@media (max-width: 782px) {
+  .sb-reservation-detail-wrap .sb-reservation-two-col {
+    grid-template-columns: 1fr;
+  }
+}
+.sb-reservation-detail-wrap .sb-reservation-block {
+  background: #fff;
+  border: 1px solid #c3c4c7;
+  border-radius: 4px;
+  padding: 16px 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+.sb-reservation-detail-wrap .sb-reservation-block h3 {
+  margin: 0 0 12px;
+  padding: 0 0 8px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+.sb-reservation-detail-wrap .sb-reservation-field {
+  margin-bottom: 14px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.sb-reservation-detail-wrap .sb-reservation-field div {
+  flex: 1 1;
+}
+
+.sb-reservation-detail-wrap .sb-reservation-field label {
+  flex: 0 0 120px;
+}
+
+@media (max-width: 782px) {
+  .sb-reservation-detail-wrap .sb-reservation-field {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+  .sb-reservation-detail-wrap .sb-reservation-field label {
+    flex: 0 0 100px;
+  }
+}
+
+.sb-reservation-detail-wrap .sb-reservation-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+.sb-reservation-detail-wrap .sb-reservation-field .sb-field-static {
+  color: #50575e;
+  font-size: 13px;
+}
+.sb-reservation-detail-wrap .sb-reservation-field input[type="text"],
+.sb-reservation-detail-wrap .sb-reservation-field input[type="email"],
+.sb-reservation-detail-wrap .sb-reservation-field input[type="tel"],
+.sb-reservation-detail-wrap .sb-reservation-field textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.sb-reservation-detail-wrap .sb-reservation-field textarea {
+  min-height: 80px;
+}
+.sb-reservation-detail-wrap .required {
+  color: #d63638;
+}

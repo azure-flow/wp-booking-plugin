@@ -1,0 +1,2200 @@
+*,
+:after,
+:before {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
+}
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
+} 
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+}
+:after,
+:before {
+  --tw-content: "";
+}
+:host,
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0;
+  line-height: inherit;
+}
+hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+}
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 1em;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+input:where([type="button"]),
+input:where([type="reset"]),
+input:where([type="submit"]) {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+}
+:-moz-focusring {
+  outline: auto;
+}
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+progress {
+  vertical-align: baseline;
+}
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+summary {
+  display: list-item;
+}
+blockquote,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+pre {
+  margin: 0;
+}
+fieldset {
+  margin: 0;
+}
+fieldset,
+legend {
+  padding: 0;
+}
+menu,
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+dialog {
+  padding: 0;
+}
+textarea {
+  resize: vertical;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+[role="button"],
+button {
+  cursor: pointer;
+}
+:disabled {
+  cursor: default;
+}
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+  display: block;
+  vertical-align: middle;
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+.sinmido-booking-wrap .sba-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.sinmido-booking-wrap .sba-not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+.sinmido-booking-wrap .sba-visible {
+  visibility: visible;
+}
+.sinmido-booking-wrap .sba-invisible {
+  visibility: hidden;
+}
+.sinmido-booking-wrap .sba-fixed {
+  position: fixed;
+}
+.sinmido-booking-wrap .sba-absolute {
+  position: absolute;
+}
+.sinmido-booking-wrap .sba-relative {
+  position: relative;
+}
+.sinmido-booking-wrap .sba-sticky {
+  position: sticky;
+}
+.sinmido-booking-wrap .sba-inset-0 {
+  inset: 0;
+}
+.sinmido-booking-wrap .sba-inset-auto {
+  inset: auto;
+}
+.sinmido-booking-wrap .sba-bottom-0 {
+  bottom: 0;
+}
+.sinmido-booking-wrap .sba-bottom-auto {
+  bottom: auto;
+}
+.sinmido-booking-wrap .sba-left-0 {
+  left: 0;
+}
+.sinmido-booking-wrap .sba-left-auto {
+  left: auto;
+}
+.sinmido-booking-wrap .sba-right-0 {
+  right: 0;
+}
+.sinmido-booking-wrap .sba-right-auto {
+  right: auto;
+}
+.sinmido-booking-wrap .sba-top-0 {
+  top: 0;
+}
+.sinmido-booking-wrap .sba-top-auto {
+  top: auto;
+}
+.sinmido-booking-wrap .sba-z-0 {
+  z-index: 0;
+}
+.sinmido-booking-wrap .sba-z-10 {
+  z-index: 10;
+}
+.sinmido-booking-wrap .sba-z-20 {
+  z-index: 20;
+}
+.sinmido-booking-wrap .sba-z-30 {
+  z-index: 30;
+}
+.sinmido-booking-wrap .sba-z-40 {
+  z-index: 40;
+}
+.sinmido-booking-wrap .sba-z-50 {
+  z-index: 50;
+}
+.sinmido-booking-wrap .sba-z-auto {
+  z-index: auto;
+}
+.sinmido-booking-wrap .sba-order-1 {
+  order: 1;
+}
+.sinmido-booking-wrap .sba-order-2 {
+  order: 2;
+}
+.sinmido-booking-wrap .sba-order-3 {
+  order: 3;
+}
+.sinmido-booking-wrap .sba-order-first {
+  order: -9999;
+}
+.sinmido-booking-wrap .sba-order-last {
+  order: 9999;
+}
+.sinmido-booking-wrap .sba-order-none {
+  order: 0;
+}
+.sinmido-booking-wrap .sba-col-auto {
+  grid-column: auto;
+}
+.sinmido-booking-wrap .sba-col-span-1 {
+  grid-column: span 1 / span 1;
+}
+.sinmido-booking-wrap .sba-col-span-12 {
+  grid-column: span 12 / span 12;
+}
+.sinmido-booking-wrap .sba-col-span-2 {
+  grid-column: span 2 / span 2;
+}
+.sinmido-booking-wrap .sba-col-span-3 {
+  grid-column: span 3 / span 3;
+}
+.sinmido-booking-wrap .sba-col-span-4 {
+  grid-column: span 4 / span 4;
+}
+.sinmido-booking-wrap .sba-col-span-6 {
+  grid-column: span 6 / span 6;
+}
+.sinmido-booking-wrap .sba-row-auto {
+  grid-row: auto;
+}
+.sinmido-booking-wrap .sba-row-span-1 {
+  grid-row: span 1 / span 1;
+}
+.sinmido-booking-wrap .sba-row-span-2 {
+  grid-row: span 2 / span 2;
+}
+.sinmido-booking-wrap .sba-row-span-3 {
+  grid-row: span 3 / span 3;
+}
+.sinmido-booking-wrap .sba-row-span-4 {
+  grid-row: span 4 / span 4;
+}
+.sinmido-booking-wrap .sba-m-0 {
+  margin: 0;
+}
+.sinmido-booking-wrap .sba-m-1 {
+  margin: 0.25rem;
+}
+.sinmido-booking-wrap .sba-m-10 {
+  margin: 2.5rem;
+}
+.sinmido-booking-wrap .sba-m-12 {
+  margin: 3rem;
+}
+.sinmido-booking-wrap .sba-m-2 {
+  margin: 0.5rem;
+}
+.sinmido-booking-wrap .sba-m-3 {
+  margin: 0.75rem;
+}
+.sinmido-booking-wrap .sba-m-4 {
+  margin: 1rem;
+}
+.sinmido-booking-wrap .sba-m-5 {
+  margin: 1.25rem;
+}
+.sinmido-booking-wrap .sba-m-6 {
+  margin: 1.5rem;
+}
+.sinmido-booking-wrap .sba-m-8 {
+  margin: 2rem;
+}
+.sinmido-booking-wrap .sba-m-auto {
+  margin: auto;
+}
+.sinmido-booking-wrap .sba-m-px {
+  margin: 1px;
+}
+.sinmido-booking-wrap .sba-mx-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+.sinmido-booking-wrap .sba-mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+.sinmido-booking-wrap .sba-mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.sinmido-booking-wrap .sba-mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+.sinmido-booking-wrap .sba-mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.sinmido-booking-wrap .sba-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.sinmido-booking-wrap .sba-my-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.sinmido-booking-wrap .sba-my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.sinmido-booking-wrap .sba-my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.sinmido-booking-wrap .sba-my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.sinmido-booking-wrap .sba-my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.sinmido-booking-wrap .sba-mb-0 {
+  margin-bottom: 0;
+}
+.sinmido-booking-wrap .sba-mb-1 {
+  margin-bottom: 0.25rem;
+}
+.sinmido-booking-wrap .sba-mb-2 {
+  margin-bottom: 0.5rem;
+}
+.sinmido-booking-wrap .sba-mb-3 {
+  margin-bottom: 0.75rem;
+}
+.sinmido-booking-wrap .sba-mb-4 {
+  margin-bottom: 1rem;
+}
+.sinmido-booking-wrap .sba-mb-5 {
+  margin-bottom: 1.25rem;
+}
+.sinmido-booking-wrap .sba-mb-6 {
+  margin-bottom: 1.5rem;
+}
+.sinmido-booking-wrap .sba-mb-8 {
+  margin-bottom: 2rem;
+}
+.sinmido-booking-wrap .sba-ml-0 {
+  margin-left: 0;
+}
+.sinmido-booking-wrap .sba-ml-1 {
+  margin-left: 0.25rem;
+}
+.sinmido-booking-wrap .sba-ml-2 {
+  margin-left: 0.5rem;
+}
+.sinmido-booking-wrap .sba-ml-3 {
+  margin-left: 0.75rem;
+}
+.sinmido-booking-wrap .sba-ml-4 {
+  margin-left: 1rem;
+}
+.sinmido-booking-wrap .sba-ml-auto {
+  margin-left: auto;
+}
+.sinmido-booking-wrap .sba-mr-0 {
+  margin-right: 0;
+}
+.sinmido-booking-wrap .sba-mr-1 {
+  margin-right: 0.25rem;
+}
+.sinmido-booking-wrap .sba-mr-2 {
+  margin-right: 0.5rem;
+}
+.sinmido-booking-wrap .sba-mr-3 {
+  margin-right: 0.75rem;
+}
+.sinmido-booking-wrap .sba-mr-4 {
+  margin-right: 1rem;
+}
+.sinmido-booking-wrap .sba-mr-auto {
+  margin-right: auto;
+}
+.sinmido-booking-wrap .sba-mt-0 {
+  margin-top: 0;
+}
+.sinmido-booking-wrap .sba-mt-1 {
+  margin-top: 0.25rem;
+}
+.sinmido-booking-wrap .sba-mt-2 {
+  margin-top: 0.5rem;
+}
+.sinmido-booking-wrap .sba-mt-3 {
+  margin-top: 0.75rem;
+}
+.sinmido-booking-wrap .sba-mt-4 {
+  margin-top: 1rem;
+}
+.sinmido-booking-wrap .sba-mt-5 {
+  margin-top: 1.25rem;
+}
+.sinmido-booking-wrap .sba-mt-6 {
+  margin-top: 1.5rem;
+}
+.sinmido-booking-wrap .sba-mt-8 {
+  margin-top: 2rem;
+}
+.sinmido-booking-wrap .sba-block {
+  display: block;
+}
+.sinmido-booking-wrap .sba-inline-block {
+  display: inline-block;
+}
+.sinmido-booking-wrap .sba-inline {
+  display: inline;
+}
+.sinmido-booking-wrap .sba-flex {
+  display: flex;
+}
+.sinmido-booking-wrap .sba-inline-flex {
+  display: inline-flex;
+}
+.sinmido-booking-wrap .sba-table {
+  display: table;
+}
+.sinmido-booking-wrap .sba-table-cell {
+  display: table-cell;
+}
+.sinmido-booking-wrap .sba-table-row {
+  display: table-row;
+}
+.sinmido-booking-wrap .sba-flow-root {
+  display: flow-root;
+}
+.sinmido-booking-wrap .sba-grid {
+  display: grid;
+}
+.sinmido-booking-wrap .sba-inline-grid {
+  display: inline-grid;
+}
+.sinmido-booking-wrap .sba-hidden {
+  display: none;
+}
+.sinmido-booking-wrap .sba-aspect-auto {
+  aspect-ratio: auto;
+}
+.sinmido-booking-wrap .sba-aspect-square {
+  aspect-ratio: 1/1;
+}
+.sinmido-booking-wrap .sba-aspect-video {
+  aspect-ratio: 16/9;
+}
+.sinmido-booking-wrap .sba-h-0 {
+  height: 0;
+}
+.sinmido-booking-wrap .sba-h-1 {
+  height: 0.25rem;
+}
+.sinmido-booking-wrap .sba-h-10 {
+  height: 2.5rem;
+}
+.sinmido-booking-wrap .sba-h-12 {
+  height: 3rem;
+}
+.sinmido-booking-wrap .sba-h-16 {
+  height: 4rem;
+}
+.sinmido-booking-wrap .sba-h-2 {
+  height: 0.5rem;
+}
+.sinmido-booking-wrap .sba-h-20 {
+  height: 5rem;
+}
+.sinmido-booking-wrap .sba-h-24 {
+  height: 6rem;
+}
+.sinmido-booking-wrap .sba-h-3 {
+  height: 0.75rem;
+}
+.sinmido-booking-wrap .sba-h-32 {
+  height: 8rem;
+}
+.sinmido-booking-wrap .sba-h-4 {
+  height: 1rem;
+}
+.sinmido-booking-wrap .sba-h-40 {
+  height: 10rem;
+}
+.sinmido-booking-wrap .sba-h-48 {
+  height: 12rem;
+}
+.sinmido-booking-wrap .sba-h-5 {
+  height: 1.25rem;
+}
+.sinmido-booking-wrap .sba-h-6 {
+  height: 1.5rem;
+}
+.sinmido-booking-wrap .sba-h-64 {
+  height: 16rem;
+}
+.sinmido-booking-wrap .sba-h-72 {
+  height: 18rem;
+}
+.sinmido-booking-wrap .sba-h-8 {
+  height: 2rem;
+}
+.sinmido-booking-wrap .sba-h-80 {
+  height: 20rem;
+}
+.sinmido-booking-wrap .sba-h-96 {
+  height: 24rem;
+}
+.sinmido-booking-wrap .sba-h-auto {
+  height: auto;
+}
+.sinmido-booking-wrap .sba-h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.sinmido-booking-wrap .sba-h-full {
+  height: 100%;
+}
+.sinmido-booking-wrap .sba-h-max {
+  height: -moz-max-content;
+  height: max-content;
+}
+.sinmido-booking-wrap .sba-h-min {
+  height: -moz-min-content;
+  height: min-content;
+}
+.sinmido-booking-wrap .sba-h-px {
+  height: 1px;
+}
+.sinmido-booking-wrap .sba-h-screen {
+  height: 100vh;
+}
+.sinmido-booking-wrap .sba-max-h-0 {
+  max-height: 0;
+}
+.sinmido-booking-wrap .sba-max-h-fit {
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+.sinmido-booking-wrap .sba-max-h-full {
+  max-height: 100%;
+}
+.sinmido-booking-wrap .sba-max-h-max {
+  max-height: -moz-max-content;
+  max-height: max-content;
+}
+.sinmido-booking-wrap .sba-max-h-min {
+  max-height: -moz-min-content;
+  max-height: min-content;
+}
+.sinmido-booking-wrap .sba-max-h-px {
+  max-height: 1px;
+}
+.sinmido-booking-wrap .sba-max-h-screen {
+  max-height: 100vh;
+}
+.sinmido-booking-wrap .sba-min-h-0 {
+  min-height: 0;
+}
+.sinmido-booking-wrap .sba-min-h-fit {
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+.sinmido-booking-wrap .sba-min-h-full {
+  min-height: 100%;
+}
+.sinmido-booking-wrap .sba-min-h-max {
+  min-height: -moz-max-content;
+  min-height: max-content;
+}
+.sinmido-booking-wrap .sba-min-h-min {
+  min-height: -moz-min-content;
+  min-height: min-content;
+}
+.sinmido-booking-wrap .sba-min-h-screen {
+  min-height: 100vh;
+}
+.sinmido-booking-wrap .sba-w-0 {
+  width: 0;
+}
+.sinmido-booking-wrap .sba-w-1 {
+  width: 0.25rem;
+}
+.sinmido-booking-wrap .sba-w-10 {
+  width: 2.5rem;
+}
+.sinmido-booking-wrap .sba-w-12 {
+  width: 3rem;
+}
+.sinmido-booking-wrap .sba-w-16 {
+  width: 4rem;
+}
+.sinmido-booking-wrap .sba-w-2 {
+  width: 0.5rem;
+}
+.sinmido-booking-wrap .sba-w-20 {
+  width: 5rem;
+}
+.sinmido-booking-wrap .sba-w-24 {
+  width: 6rem;
+}
+.sinmido-booking-wrap .sba-w-3 {
+  width: 0.75rem;
+}
+.sinmido-booking-wrap .sba-w-32 {
+  width: 8rem;
+}
+.sinmido-booking-wrap .sba-w-4 {
+  width: 1rem;
+}
+.sinmido-booking-wrap .sba-w-40 {
+  width: 10rem;
+}
+.sinmido-booking-wrap .sba-w-48 {
+  width: 12rem;
+}
+.sinmido-booking-wrap .sba-w-5 {
+  width: 1.25rem;
+}
+.sinmido-booking-wrap .sba-w-56 {
+  width: 14rem;
+}
+.sinmido-booking-wrap .sba-w-6 {
+  width: 1.5rem;
+}
+.sinmido-booking-wrap .sba-w-64 {
+  width: 16rem;
+}
+.sinmido-booking-wrap .sba-w-72 {
+  width: 18rem;
+}
+.sinmido-booking-wrap .sba-w-8 {
+  width: 2rem;
+}
+.sinmido-booking-wrap .sba-w-80 {
+  width: 20rem;
+}
+.sinmido-booking-wrap .sba-w-96 {
+  width: 24rem;
+}
+.sinmido-booking-wrap .sba-w-auto {
+  width: auto;
+}
+.sinmido-booking-wrap .sba-w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.sinmido-booking-wrap .sba-w-full {
+  width: 100%;
+}
+.sinmido-booking-wrap .sba-w-max {
+  width: -moz-max-content;
+  width: max-content;
+}
+.sinmido-booking-wrap .sba-w-min {
+  width: -moz-min-content;
+  width: min-content;
+}
+.sinmido-booking-wrap .sba-w-px {
+  width: 1px;
+}
+.sinmido-booking-wrap .sba-w-screen {
+  width: 100vw;
+}
+.sinmido-booking-wrap .sba-min-w-0 {
+  min-width: 0;
+}
+.sinmido-booking-wrap .sba-min-w-fit {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+.sinmido-booking-wrap .sba-min-w-full {
+  min-width: 100%;
+}
+.sinmido-booking-wrap .sba-min-w-max {
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+.sinmido-booking-wrap .sba-min-w-min {
+  min-width: -moz-min-content;
+  min-width: min-content;
+}
+.sinmido-booking-wrap .sba-max-w-0 {
+  max-width: 0;
+}
+.sinmido-booking-wrap .sba-max-w-2xl {
+  max-width: 42rem;
+}
+.sinmido-booking-wrap .sba-max-w-3xl {
+  max-width: 48rem;
+}
+.sinmido-booking-wrap .sba-max-w-4xl {
+  max-width: 56rem;
+}
+.sinmido-booking-wrap .sba-max-w-5xl {
+  max-width: 64rem;
+}
+.sinmido-booking-wrap .sba-max-w-6xl {
+  max-width: 72rem;
+}
+.sinmido-booking-wrap .sba-max-w-7xl {
+  max-width: 80rem;
+}
+.sinmido-booking-wrap .sba-max-w-fit {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+.sinmido-booking-wrap .sba-max-w-full {
+  max-width: 100%;
+}
+.sinmido-booking-wrap .sba-max-w-lg {
+  max-width: 32rem;
+}
+.sinmido-booking-wrap .sba-max-w-max {
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+.sinmido-booking-wrap .sba-max-w-md {
+  max-width: 28rem;
+}
+.sinmido-booking-wrap .sba-max-w-min {
+  max-width: -moz-min-content;
+  max-width: min-content;
+}
+.sinmido-booking-wrap .sba-max-w-none {
+  max-width: none;
+}
+.sinmido-booking-wrap .sba-max-w-sm {
+  max-width: 24rem;
+}
+.sinmido-booking-wrap .sba-max-w-xl {
+  max-width: 36rem;
+}
+.sinmido-booking-wrap .sba-max-w-xs {
+  max-width: 20rem;
+}
+.sinmido-booking-wrap .sba-flex-1 {
+  flex: 1 1 0%;
+}
+.sinmido-booking-wrap .sba-flex-auto {
+  flex: 1 1 auto;
+}
+.sinmido-booking-wrap .sba-flex-initial {
+  flex: 0 1 auto;
+}
+.sinmido-booking-wrap .sba-flex-none {
+  flex: none;
+}
+.sinmido-booking-wrap .sba-shrink {
+  flex-shrink: 1;
+}
+.sinmido-booking-wrap .sba-shrink-0 {
+  flex-shrink: 0;
+}
+.sinmido-booking-wrap .sba-grow {
+  flex-grow: 1;
+}
+.sinmido-booking-wrap .sba-grow-0 {
+  flex-grow: 0;
+}
+.sinmido-booking-wrap .sba-basis-0 {
+  flex-basis: 0px;
+}
+.sinmido-booking-wrap .sba-basis-1 {
+  flex-basis: 0.25rem;
+}
+.sinmido-booking-wrap .sba-basis-2 {
+  flex-basis: 0.5rem;
+}
+.sinmido-booking-wrap .sba-basis-4 {
+  flex-basis: 1rem;
+}
+.sinmido-booking-wrap .sba-basis-auto {
+  flex-basis: auto;
+}
+.sinmido-booking-wrap .sba-basis-full {
+  flex-basis: 100%;
+}
+.sinmido-booking-wrap .sba-border-collapse {
+  border-collapse: collapse;
+}
+.sinmido-booking-wrap .sba-border-separate {
+  border-collapse: separate;
+}
+.sinmido-booking-wrap .sba-cursor-auto {
+  cursor: auto;
+}
+.sinmido-booking-wrap .sba-cursor-default {
+  cursor: default;
+}
+.sinmido-booking-wrap .sba-cursor-not-allowed {
+  cursor: not-allowed;
+}
+.sinmido-booking-wrap .sba-cursor-pointer {
+  cursor: pointer;
+}
+.sinmido-booking-wrap .sba-cursor-wait {
+  cursor: wait;
+}
+.sinmido-booking-wrap .sba-select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.sinmido-booking-wrap .sba-select-text {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+}
+.sinmido-booking-wrap .sba-select-all {
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  user-select: all;
+}
+.sinmido-booking-wrap .sba-select-auto {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  user-select: auto;
+}
+.sinmido-booking-wrap .sba-resize-none {
+  resize: none;
+}
+.sinmido-booking-wrap .sba-resize-y {
+  resize: vertical;
+}
+.sinmido-booking-wrap .sba-resize-x {
+  resize: horizontal;
+}
+.sinmido-booking-wrap .sba-resize {
+  resize: both;
+}
+.sinmido-booking-wrap .sba-list-decimal {
+  list-style-type: decimal;
+}
+.sinmido-booking-wrap .sba-list-disc {
+  list-style-type: disc;
+}
+.sinmido-booking-wrap .sba-list-none {
+  list-style-type: none;
+}
+.sinmido-booking-wrap .sba-appearance-none {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.sinmido-booking-wrap .sba-appearance-auto {
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  appearance: auto;
+}
+.sinmido-booking-wrap .sba-grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.sinmido-booking-wrap .sba-grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+.sinmido-booking-wrap .sba-grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.sinmido-booking-wrap .sba-grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.sinmido-booking-wrap .sba-grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.sinmido-booking-wrap .sba-grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.sinmido-booking-wrap .sba-grid-rows-1 {
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+}
+.sinmido-booking-wrap .sba-grid-rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.sinmido-booking-wrap .sba-grid-rows-3 {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+.sinmido-booking-wrap .sba-grid-rows-4 {
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+.sinmido-booking-wrap .sba-grid-rows-6 {
+  grid-template-rows: repeat(6, minmax(0, 1fr));
+}
+.sinmido-booking-wrap .sba-flex-row {
+  flex-direction: row;
+}
+.sinmido-booking-wrap .sba-flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.sinmido-booking-wrap .sba-flex-col {
+  flex-direction: column;
+}
+.sinmido-booking-wrap .sba-flex-col-reverse {
+  flex-direction: column-reverse;
+}
+.sinmido-booking-wrap .sba-flex-wrap {
+  flex-wrap: wrap;
+}
+.sinmido-booking-wrap .sba-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.sinmido-booking-wrap .sba-flex-nowrap {
+  flex-wrap: nowrap;
+}
+.sinmido-booking-wrap .sba-place-content-center {
+  place-content: center;
+}
+.sinmido-booking-wrap .sba-place-content-start {
+  place-content: start;
+}
+.sinmido-booking-wrap .sba-place-content-end {
+  place-content: end;
+}
+.sinmido-booking-wrap .sba-place-items-start {
+  place-items: start;
+}
+.sinmido-booking-wrap .sba-place-items-end {
+  place-items: end;
+}
+.sinmido-booking-wrap .sba-place-items-center {
+  place-items: center;
+}
+.sinmido-booking-wrap .sba-content-center {
+  align-content: center;
+}
+.sinmido-booking-wrap .sba-content-start {
+  align-content: flex-start;
+}
+.sinmido-booking-wrap .sba-content-end {
+  align-content: flex-end;
+}
+.sinmido-booking-wrap .sba-content-between {
+  align-content: space-between;
+}
+.sinmido-booking-wrap .sba-content-around {
+  align-content: space-around;
+}
+.sinmido-booking-wrap .sba-items-start {
+  align-items: flex-start;
+}
+.sinmido-booking-wrap .sba-items-end {
+  align-items: flex-end;
+}
+.sinmido-booking-wrap .sba-items-center {
+  align-items: center;
+}
+.sinmido-booking-wrap .sba-items-baseline {
+  align-items: baseline;
+}
+.sinmido-booking-wrap .sba-items-stretch {
+  align-items: stretch;
+}
+.sinmido-booking-wrap .sba-justify-start {
+  justify-content: flex-start;
+}
+.sinmido-booking-wrap .sba-justify-end {
+  justify-content: flex-end;
+}
+.sinmido-booking-wrap .sba-justify-center {
+  justify-content: center;
+}
+.sinmido-booking-wrap .sba-justify-between {
+  justify-content: space-between;
+}
+.sinmido-booking-wrap .sba-justify-around {
+  justify-content: space-around;
+}
+.sinmido-booking-wrap .sba-justify-evenly {
+  justify-content: space-evenly;
+}
+.sinmido-booking-wrap .sba-gap-0 {
+  gap: 0;
+}
+.sinmido-booking-wrap .sba-gap-1 {
+  gap: 0.25rem;
+}
+.sinmido-booking-wrap .sba-gap-10 {
+  gap: 2.5rem;
+}
+.sinmido-booking-wrap .sba-gap-12 {
+  gap: 3rem;
+}
+.sinmido-booking-wrap .sba-gap-2 {
+  gap: 0.5rem;
+}
+.sinmido-booking-wrap .sba-gap-3 {
+  gap: 0.75rem;
+}
+.sinmido-booking-wrap .sba-gap-4 {
+  gap: 1rem;
+}
+.sinmido-booking-wrap .sba-gap-5 {
+  gap: 1.25rem;
+}
+.sinmido-booking-wrap .sba-gap-6 {
+  gap: 1.5rem;
+}
+.sinmido-booking-wrap .sba-gap-8 {
+  gap: 2rem;
+}
+.sinmido-booking-wrap .sba-gap-px {
+  gap: 1px;
+}
+.sinmido-booking-wrap .sba-gap-x-1 {
+  -moz-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+}
+.sinmido-booking-wrap .sba-gap-x-2 {
+  -moz-column-gap: 0.5rem;
+  column-gap: 0.5rem;
+}
+.sinmido-booking-wrap .sba-gap-x-3 {
+  -moz-column-gap: 0.75rem;
+  column-gap: 0.75rem;
+}
+.sinmido-booking-wrap .sba-gap-x-4 {
+  -moz-column-gap: 1rem;
+  column-gap: 1rem;
+}
+.sinmido-booking-wrap .sba-gap-y-1 {
+  row-gap: 0.25rem;
+}
+.sinmido-booking-wrap .sba-gap-y-2 {
+  row-gap: 0.5rem;
+}
+.sinmido-booking-wrap .sba-gap-y-3 {
+  row-gap: 0.75rem;
+}
+.sinmido-booking-wrap .sba-gap-y-4 {
+  row-gap: 1rem;
+}
+.sinmido-booking-wrap :is(.sba-space-x-1 > :not([hidden]) ~ :not([hidden])) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.25rem * (1 - var(--tw-space-x-reverse)));
+}
+.sinmido-booking-wrap :is(.sba-space-x-2 > :not([hidden]) ~ :not([hidden])) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * (1 - var(--tw-space-x-reverse)));
+}
+.sinmido-booking-wrap :is(.sba-space-x-3 > :not([hidden]) ~ :not([hidden])) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * (1 - var(--tw-space-x-reverse)));
+}
+.sinmido-booking-wrap :is(.sba-space-x-4 > :not([hidden]) ~ :not([hidden])) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * (1 - var(--tw-space-x-reverse)));
+}
+.sinmido-booking-wrap :is(.sba-space-y-1 > :not([hidden]) ~ :not([hidden])) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.25rem * (1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}
+.sinmido-booking-wrap :is(.sba-space-y-2 > :not([hidden]) ~ :not([hidden])) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * (1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+.sinmido-booking-wrap :is(.sba-space-y-3 > :not([hidden]) ~ :not([hidden])) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * (1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+.sinmido-booking-wrap :is(.sba-space-y-4 > :not([hidden]) ~ :not([hidden])) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * (1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+.sinmido-booking-wrap .sba-self-auto {
+  align-self: auto;
+}
+.sinmido-booking-wrap .sba-self-start {
+  align-self: flex-start;
+}
+.sinmido-booking-wrap .sba-self-end {
+  align-self: flex-end;
+}
+.sinmido-booking-wrap .sba-self-center {
+  align-self: center;
+}
+.sinmido-booking-wrap .sba-self-stretch {
+  align-self: stretch;
+}
+.sinmido-booking-wrap .sba-overflow-auto {
+  overflow: auto;
+}
+.sinmido-booking-wrap .sba-overflow-hidden {
+  overflow: hidden;
+}
+.sinmido-booking-wrap .sba-overflow-visible {
+  overflow: visible;
+}
+.sinmido-booking-wrap .sba-overflow-scroll {
+  overflow: scroll;
+}
+.sinmido-booking-wrap .sba-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sinmido-booking-wrap .sba-break-normal {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.sinmido-booking-wrap .sba-break-words {
+  overflow-wrap: break-word;
+}
+.sinmido-booking-wrap .sba-break-all {
+  word-break: break-all;
+}
+.sinmido-booking-wrap .sba-break-keep {
+  word-break: keep-all;
+}
+.sinmido-booking-wrap .sba-rounded {
+  border-radius: 0.25rem;
+}
+.sinmido-booking-wrap .sba-rounded-2xl {
+  border-radius: 1rem;
+}
+.sinmido-booking-wrap .sba-rounded-3xl {
+  border-radius: 1.5rem;
+}
+.sinmido-booking-wrap .sba-rounded-full {
+  border-radius: 9999px;
+}
+.sinmido-booking-wrap .sba-rounded-lg {
+  border-radius: 0.5rem;
+}
+.sinmido-booking-wrap .sba-rounded-md {
+  border-radius: 0.375rem;
+}
+.sinmido-booking-wrap .sba-rounded-none {
+  border-radius: 0;
+}
+.sinmido-booking-wrap .sba-rounded-sm {
+  border-radius: 0.125rem;
+}
+.sinmido-booking-wrap .sba-rounded-xl {
+  border-radius: 0.75rem;
+}
+.sinmido-booking-wrap .sba-border {
+  border-width: 1px;
+}
+.sinmido-booking-wrap .sba-border-0 {
+  border-width: 0;
+}
+.sinmido-booking-wrap .sba-border-2 {
+  border-width: 2px;
+}
+.sinmido-booking-wrap .sba-border-4 {
+  border-width: 4px;
+}
+.sinmido-booking-wrap .sba-border-b {
+  border-bottom-width: 1px;
+}
+.sinmido-booking-wrap .sba-border-b-2 {
+  border-bottom-width: 2px;
+}
+.sinmido-booking-wrap .sba-border-l {
+  border-left-width: 1px;
+}
+.sinmido-booking-wrap .sba-border-r {
+  border-right-width: 1px;
+}
+.sinmido-booking-wrap .sba-border-t {
+  border-top-width: 1px;
+}
+.sinmido-booking-wrap .sba-border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
+}
+.sinmido-booking-wrap .sba-border-blue-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(37 99 235 / var(--tw-border-opacity, 1));
+}
+.sinmido-booking-wrap .sba-border-gray-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
+}
+.sinmido-booking-wrap .sba-border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+}
+.sinmido-booking-wrap .sba-border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
+.sinmido-booking-wrap .sba-border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity, 1));
+}
+.sinmido-booking-wrap .sba-border-transparent {
+  border-color: transparent;
+}
+.sinmido-booking-wrap .sba-border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-blue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 219 254 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-gray-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-transparent {
+  background-color: transparent;
+}
+.sinmido-booking-wrap .sba-bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-yellow-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .sba-bg-opacity-0 {
+  --tw-bg-opacity: 0;
+}
+.sinmido-booking-wrap .sba-bg-opacity-100 {
+  --tw-bg-opacity: 1;
+}
+.sinmido-booking-wrap .sba-bg-opacity-50 {
+  --tw-bg-opacity: 0.5;
+}
+.sinmido-booking-wrap .sba-object-contain {
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.sinmido-booking-wrap .sba-object-cover {
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.sinmido-booking-wrap .sba-object-fill {
+  -o-object-fit: fill;
+  object-fit: fill;
+}
+.sinmido-booking-wrap .sba-object-none {
+  -o-object-fit: none;
+  object-fit: none;
+}
+.sinmido-booking-wrap .sba-p-0 {
+  padding: 0;
+}
+.sinmido-booking-wrap .sba-p-1 {
+  padding: 0.25rem;
+}
+.sinmido-booking-wrap .sba-p-10 {
+  padding: 2.5rem;
+}
+.sinmido-booking-wrap .sba-p-12 {
+  padding: 3rem;
+}
+.sinmido-booking-wrap .sba-p-16 {
+  padding: 4rem;
+}
+.sinmido-booking-wrap .sba-p-2 {
+  padding: 0.5rem;
+}
+.sinmido-booking-wrap .sba-p-20 {
+  padding: 5rem;
+}
+.sinmido-booking-wrap .sba-p-24 {
+  padding: 6rem;
+}
+.sinmido-booking-wrap .sba-p-3 {
+  padding: 0.75rem;
+}
+.sinmido-booking-wrap .sba-p-4 {
+  padding: 1rem;
+}
+.sinmido-booking-wrap .sba-p-5 {
+  padding: 1.25rem;
+}
+.sinmido-booking-wrap .sba-p-6 {
+  padding: 1.5rem;
+}
+.sinmido-booking-wrap .sba-p-8 {
+  padding: 2rem;
+}
+.sinmido-booking-wrap .sba-p-px {
+  padding: 1px;
+}
+.sinmido-booking-wrap .sba-px-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.sinmido-booking-wrap .sba-px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.sinmido-booking-wrap .sba-px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.sinmido-booking-wrap .sba-px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.sinmido-booking-wrap .sba-px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.sinmido-booking-wrap .sba-px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.sinmido-booking-wrap .sba-px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.sinmido-booking-wrap .sba-px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.sinmido-booking-wrap .sba-px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.sinmido-booking-wrap .sba-py-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.sinmido-booking-wrap .sba-py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+.sinmido-booking-wrap .sba-py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.sinmido-booking-wrap .sba-py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.sinmido-booking-wrap .sba-py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.sinmido-booking-wrap .sba-py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.sinmido-booking-wrap .sba-py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.sinmido-booking-wrap .sba-py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.sinmido-booking-wrap .sba-py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.sinmido-booking-wrap .sba-pb-0 {
+  padding-bottom: 0;
+}
+.sinmido-booking-wrap .sba-pb-1 {
+  padding-bottom: 0.25rem;
+}
+.sinmido-booking-wrap .sba-pb-2 {
+  padding-bottom: 0.5rem;
+}
+.sinmido-booking-wrap .sba-pb-3 {
+  padding-bottom: 0.75rem;
+}
+.sinmido-booking-wrap .sba-pb-4 {
+  padding-bottom: 1rem;
+}
+.sinmido-booking-wrap .sba-pb-5 {
+  padding-bottom: 1.25rem;
+}
+.sinmido-booking-wrap .sba-pb-6 {
+  padding-bottom: 1.5rem;
+}
+.sinmido-booking-wrap .sba-pb-8 {
+  padding-bottom: 2rem;
+}
+.sinmido-booking-wrap .sba-pl-0 {
+  padding-left: 0;
+}
+.sinmido-booking-wrap .sba-pl-1 {
+  padding-left: 0.25rem;
+}
+.sinmido-booking-wrap .sba-pl-2 {
+  padding-left: 0.5rem;
+}
+.sinmido-booking-wrap .sba-pl-3 {
+  padding-left: 0.75rem;
+}
+.sinmido-booking-wrap .sba-pl-4 {
+  padding-left: 1rem;
+}
+.sinmido-booking-wrap .sba-pl-5 {
+  padding-left: 1.25rem;
+}
+.sinmido-booking-wrap .sba-pl-6 {
+  padding-left: 1.5rem;
+}
+.sinmido-booking-wrap .sba-pl-8 {
+  padding-left: 2rem;
+}
+.sinmido-booking-wrap .sba-pr-0 {
+  padding-right: 0;
+}
+.sinmido-booking-wrap .sba-pr-1 {
+  padding-right: 0.25rem;
+}
+.sinmido-booking-wrap .sba-pr-2 {
+  padding-right: 0.5rem;
+}
+.sinmido-booking-wrap .sba-pr-3 {
+  padding-right: 0.75rem;
+}
+.sinmido-booking-wrap .sba-pr-4 {
+  padding-right: 1rem;
+}
+.sinmido-booking-wrap .sba-pr-5 {
+  padding-right: 1.25rem;
+}
+.sinmido-booking-wrap .sba-pr-6 {
+  padding-right: 1.5rem;
+}
+.sinmido-booking-wrap .sba-pr-8 {
+  padding-right: 2rem;
+}
+.sinmido-booking-wrap .sba-pt-0 {
+  padding-top: 0;
+}
+.sinmido-booking-wrap .sba-pt-1 {
+  padding-top: 0.25rem;
+}
+.sinmido-booking-wrap .sba-pt-2 {
+  padding-top: 0.5rem;
+}
+.sinmido-booking-wrap .sba-pt-3 {
+  padding-top: 0.75rem;
+}
+.sinmido-booking-wrap .sba-pt-4 {
+  padding-top: 1rem;
+}
+.sinmido-booking-wrap .sba-pt-5 {
+  padding-top: 1.25rem;
+}
+.sinmido-booking-wrap .sba-pt-6 {
+  padding-top: 1.5rem;
+}
+.sinmido-booking-wrap .sba-pt-8 {
+  padding-top: 2rem;
+}
+.sinmido-booking-wrap .sba-text-left {
+  text-align: left;
+}
+.sinmido-booking-wrap .sba-text-center {
+  text-align: center;
+}
+.sinmido-booking-wrap .sba-text-right {
+  text-align: right;
+}
+.sinmido-booking-wrap .sba-text-justify {
+  text-align: justify;
+}
+.sinmido-booking-wrap .sba-align-baseline {
+  vertical-align: baseline;
+}
+.sinmido-booking-wrap .sba-align-top {
+  vertical-align: top;
+}
+.sinmido-booking-wrap .sba-align-middle {
+  vertical-align: middle;
+}
+.sinmido-booking-wrap .sba-align-bottom {
+  vertical-align: bottom;
+}
+.sinmido-booking-wrap .sba-align-text-top {
+  vertical-align: text-top;
+}
+.sinmido-booking-wrap .sba-align-text-bottom {
+  vertical-align: text-bottom;
+}
+.sinmido-booking-wrap .sba-text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.sinmido-booking-wrap .sba-text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.sinmido-booking-wrap .sba-text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.sinmido-booking-wrap .sba-text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.sinmido-booking-wrap .sba-text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.sinmido-booking-wrap .sba-text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.sinmido-booking-wrap .sba-text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.sinmido-booking-wrap .sba-font-bold {
+  font-weight: 700;
+}
+.sinmido-booking-wrap .sba-font-extrabold {
+  font-weight: 800;
+}
+.sinmido-booking-wrap .sba-font-extralight {
+  font-weight: 200;
+}
+.sinmido-booking-wrap .sba-font-light {
+  font-weight: 300;
+}
+.sinmido-booking-wrap .sba-font-medium {
+  font-weight: 500;
+}
+.sinmido-booking-wrap .sba-font-normal {
+  font-weight: 400;
+}
+.sinmido-booking-wrap .sba-font-semibold {
+  font-weight: 600;
+}
+.sinmido-booking-wrap .sba-font-thin {
+  font-weight: 100;
+}
+.sinmido-booking-wrap .sba-leading-loose {
+  line-height: 2;
+}
+.sinmido-booking-wrap .sba-leading-none {
+  line-height: 1;
+}
+.sinmido-booking-wrap .sba-leading-normal {
+  line-height: 1.5;
+}
+.sinmido-booking-wrap .sba-leading-relaxed {
+  line-height: 1.625;
+}
+.sinmido-booking-wrap .sba-leading-snug {
+  line-height: 1.375;
+}
+.sinmido-booking-wrap .sba-leading-tight {
+  line-height: 1.25;
+}
+.sinmido-booking-wrap .sba-tracking-normal {
+  letter-spacing: 0;
+}
+.sinmido-booking-wrap .sba-tracking-tight {
+  letter-spacing: -0.025em;
+}
+.sinmido-booking-wrap .sba-tracking-tighter {
+  letter-spacing: -0.05em;
+}
+.sinmido-booking-wrap .sba-tracking-wide {
+  letter-spacing: 0.025em;
+}
+.sinmido-booking-wrap .sba-tracking-wider {
+  letter-spacing: 0.05em;
+}
+.sinmido-booking-wrap .sba-text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-gray-100 {
+  --tw-text-opacity: 1;
+  color: rgb(243 244 246 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-gray-50 {
+  --tw-text-opacity: 1;
+  color: rgb(249 250 251 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-transparent {
+  color: transparent;
+}
+.sinmido-booking-wrap .sba-text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-text-yellow-600 {
+  --tw-text-opacity: 1;
+  color: rgb(202 138 4 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .sba-underline {
+  text-decoration-line: underline;
+}
+.sinmido-booking-wrap .sba-overline {
+  text-decoration-line: overline;
+}
+.sinmido-booking-wrap .sba-line-through {
+  text-decoration-line: line-through;
+}
+.sinmido-booking-wrap .sba-no-underline {
+  text-decoration-line: none;
+}
+.sinmido-booking-wrap .sba-opacity-0 {
+  opacity: 0;
+}
+.sinmido-booking-wrap .sba-opacity-10 {
+  opacity: 0.1;
+}
+.sinmido-booking-wrap .sba-opacity-100 {
+  opacity: 1;
+}
+.sinmido-booking-wrap .sba-opacity-20 {
+  opacity: 0.2;
+}
+.sinmido-booking-wrap .sba-opacity-25 {
+  opacity: 0.25;
+}
+.sinmido-booking-wrap .sba-opacity-30 {
+  opacity: 0.3;
+}
+.sinmido-booking-wrap .sba-opacity-40 {
+  opacity: 0.4;
+}
+.sinmido-booking-wrap .sba-opacity-5 {
+  opacity: 0.05;
+}
+.sinmido-booking-wrap .sba-opacity-50 {
+  opacity: 0.5;
+}
+.sinmido-booking-wrap .sba-opacity-60 {
+  opacity: 0.6;
+}
+.sinmido-booking-wrap .sba-opacity-70 {
+  opacity: 0.7;
+}
+.sinmido-booking-wrap .sba-opacity-75 {
+  opacity: 0.75;
+}
+.sinmido-booking-wrap .sba-opacity-80 {
+  opacity: 0.8;
+}
+.sinmido-booking-wrap .sba-opacity-90 {
+  opacity: 0.9;
+}
+.sinmido-booking-wrap .sba-opacity-95 {
+  opacity: 0.95;
+}
+.sinmido-booking-wrap .sba-shadow {
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+}
+.sinmido-booking-wrap .sba-shadow,
+.sinmido-booking-wrap .sba-shadow-2xl {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.sinmido-booking-wrap .sba-shadow-2xl {
+  --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+}
+.sinmido-booking-wrap .sba-shadow-inner {
+  --tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
+}
+.sinmido-booking-wrap .sba-shadow-inner,
+.sinmido-booking-wrap .sba-shadow-lg {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.sinmido-booking-wrap .sba-shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color);
+}
+.sinmido-booking-wrap .sba-shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+    0 2px 4px -2px var(--tw-shadow-color);
+}
+.sinmido-booking-wrap .sba-shadow-md,
+.sinmido-booking-wrap .sba-shadow-none {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.sinmido-booking-wrap .sba-shadow-none {
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+}
+.sinmido-booking-wrap .sba-shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+}
+.sinmido-booking-wrap .sba-shadow-sm,
+.sinmido-booking-wrap .sba-shadow-xl {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.sinmido-booking-wrap .sba-shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
+    0 8px 10px -6px var(--tw-shadow-color);
+}
+.sinmido-booking-wrap .sba-outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.sinmido-booking-wrap .sba-ring-0 {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width))
+    var(--tw-ring-color);
+}
+.sinmido-booking-wrap .sba-ring-0,
+.sinmido-booking-wrap .sba-ring-1 {
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
+}
+.sinmido-booking-wrap .sba-ring-1 {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+}
+.sinmido-booking-wrap .sba-ring-2 {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+}
+.sinmido-booking-wrap .sba-ring-2,
+.sinmido-booking-wrap .sba-ring-4 {
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
+}
+.sinmido-booking-wrap .sba-ring-4 {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+}
+.sinmido-booking-wrap .sba-ring-8 {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(8px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
+}
+.sinmido-booking-wrap .sba-transition {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+.sinmido-booking-wrap .sba-transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+.sinmido-booking-wrap .sba-transition-none {
+  transition-property: none;
+}
+.sinmido-booking-wrap .sba-duration-100 {
+  transition-duration: 0.1s;
+}
+.sinmido-booking-wrap .sba-duration-1000 {
+  transition-duration: 1s;
+}
+.sinmido-booking-wrap .sba-duration-150 {
+  transition-duration: 0.15s;
+}
+.sinmido-booking-wrap .sba-duration-200 {
+  transition-duration: 0.2s;
+}
+.sinmido-booking-wrap .sba-duration-300 {
+  transition-duration: 0.3s;
+}
+.sinmido-booking-wrap .sba-duration-500 {
+  transition-duration: 0.5s;
+}
+.sinmido-booking-wrap .sba-duration-700 {
+  transition-duration: 0.7s;
+}
+.sinmido-booking-wrap .sba-duration-75 {
+  transition-duration: 75ms;
+}
+.sinmido-booking-wrap .sba-ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.sinmido-booking-wrap .sba-ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sinmido-booking-wrap .sba-ease-linear {
+  transition-timing-function: linear;
+}
+.sinmido-booking-wrap .sba-ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+.sinmido-booking-wrap .hover\:sba-border-gray-300:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
+.sinmido-booking-wrap .hover\:sba-bg-gray-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .hover\:sba-bg-gray-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .hover\:sba-text-gray-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .hover\:sba-text-gray-900:hover {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+}
+.sinmido-booking-wrap .hover\:sba-opacity-80:hover {
+  opacity: 0.8;
+}
+.sinmido-booking-wrap .focus\:sba-border-blue-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity, 1));
+}
+.sinmido-booking-wrap .focus\:sba-outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.sinmido-booking-wrap .focus\:sba-ring-2:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
+}
+.sinmido-booking-wrap .focus\:sba-ring-blue-500:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity, 1));
+}
+.sinmido-booking-wrap .active\:sba-bg-gray-200:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+}
+.sinmido-booking-wrap .disabled\:sba-cursor-not-allowed:disabled {
+  cursor: not-allowed;
+}
+.sinmido-booking-wrap .disabled\:sba-opacity-50:disabled {
+  opacity: 0.5;
+}
