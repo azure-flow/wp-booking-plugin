@@ -215,6 +215,9 @@ class Sinmido_Booking_Admin
 
 			'custom_css'            => '',
 			'custom_js'             => '',
+
+			// フォーム初期項目（新規カレンダー作成時のデフォルト）
+			'default_form_fields'   => Sinmido_Booking_Event_CPT::default_form_fields(),
 		);
 	}
 
@@ -226,6 +229,9 @@ class Sinmido_Booking_Admin
 			$options = array();
 		}
 		$settings  = array_merge(self::default_system_settings(), $options);
+		$default_form_fields = isset( $settings['default_form_fields'] ) && is_array( $settings['default_form_fields'] )
+			? $settings['default_form_fields']
+			: Sinmido_Booking_Event_CPT::default_form_fields();
 		$blacklist = self::get_blacklist();
 		$form_url  = admin_url('admin-post.php?action=sinmido_booking_save_settings');
 		// 戻る先は「予約状況」ページに統一
@@ -284,6 +290,14 @@ class Sinmido_Booking_Admin
 			'custom_css'            => isset($_POST['sb_custom_css']) ? wp_strip_all_tags(wp_unslash($_POST['sb_custom_css'])) : '',
 			'custom_js'             => isset($_POST['sb_custom_js']) ? wp_strip_all_tags(wp_unslash($_POST['sb_custom_js'])) : '',
 		));
+		// フォーム初期項目（JSONテキストエリア）
+		if ( isset( $_POST['sb_default_form_fields'] ) ) {
+			$raw_form = (string) wp_unslash( $_POST['sb_default_form_fields'] );
+			$decoded  = json_decode( $raw_form, true );
+			if ( is_array( $decoded ) ) {
+				$settings['default_form_fields'] = $decoded;
+			}
+		}
 		if (empty($settings['admin_email'])) {
 			$settings['admin_email'] = get_option('admin_email');
 		}

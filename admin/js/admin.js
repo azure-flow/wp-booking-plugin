@@ -758,6 +758,253 @@
 		});
 	});
 
+	// ====== システム設定: フォーム初期項目 ======
+	$(function () {
+		var $panel = $('#sb-panel-settings-formdefaults');
+		if (!$panel.length) return;
+
+		var $form = $('#sb-settings-form');
+		var $hidden = $form.find('#sb_default_form_fields');
+		if (!$hidden.length) return;
+
+		var $listView = $panel.find('.sb-defaultform-list-view');
+		var $editView = $panel.find('.sb-defaultform-edit-view');
+		var $listEl   = $listView.find('.sb-defaultform-fields-list');
+
+		var editIndex = -1;
+
+		function getFormFields() {
+			var raw = $hidden.val();
+			if (raw) {
+				try {
+					var arr = JSON.parse(raw);
+					if (Array.isArray(arr)) return arr;
+				} catch (e) {}
+			}
+			if (typeof window.sbDefaultFormFieldsInitial !== 'undefined' && Array.isArray(window.sbDefaultFormFieldsInitial)) {
+				return window.sbDefaultFormFieldsInitial;
+			}
+			return [];
+		}
+
+		function setFormFields(arr) {
+			$hidden.val(JSON.stringify(arr));
+		}
+
+		function showEditView(title) {
+			$editView.find('.sb-defaultform-edit-title').text(title || '新規項目を追加');
+			$listView.addClass('sba-hidden');
+			$editView.removeClass('sba-hidden');
+		}
+
+		function hideEditView() {
+			$editView.addClass('sba-hidden');
+			$listView.removeClass('sba-hidden');
+		}
+
+		function fillOptionsList(options) {
+			var $wrap = $('#sb-defaultform-field-options-wrap');
+			var $list = $wrap.find('.sb-defaultform-options-list');
+			$list.empty();
+			(options || ['']).forEach(function (val) {
+				var $row = $('<div class="sba-flex sba-gap-2 sba-items-center"></div>');
+				var $input = $('<input type="text" class="sb-defaultform-option-input sba-flex-1 sba-border sba-border-gray-300 sba-rounded sba-p-2" />').val(val || '');
+				$row.append($input);
+				$row.append($('<button type="button" class="button button-small sb-defaultform-option-remove">削除</button>'));
+				$list.append($row);
+			});
+		}
+
+		function getOptionsFromForm() {
+			var opts = [];
+			$('#sb-defaultform-field-options-wrap .sb-defaultform-option-input').each(function () {
+				var v = $(this).val().trim();
+				if (v) opts.push(v);
+			});
+			return opts;
+		}
+
+		function toggleOptionsWrap() {
+			var t = $('#sb-defaultform-field-type').val();
+			if (t === 'select' || t === 'checkbox' || t === 'radio') {
+				$('#sb-defaultform-field-options-wrap').removeClass('sba-hidden');
+			} else {
+				$('#sb-defaultform-field-options-wrap').addClass('sba-hidden');
+			}
+		}
+
+		function renderList() {
+			var fields = getFormFields();
+			var html = '';
+			fields.forEach(function (f, idx) {
+				var label = (f.label || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+				html += '<li class="sb-defaultform-field-item sba-border sba-border-gray-200 sba-rounded sba-p-3 sba-bg-gray-50" data-index="' + idx + '">';
+				html += '<div class="sba-flex sba-items-center sba-justify-between">';
+				html += '<span class="sba-font-medium">' + label + (f.required ? ' *' : '') + '</span>';
+				html += '<span class="sba-text-sm sba-flex sba-items-center sba-gap-2">';
+				html += '<button type="button" class="sb-defaultform-field-move-up sba-text-gray-500 hover:sba-underline" data-index="' + idx + '">↑</button>';
+				html += '<button type="button" class="sb-defaultform-field-move-down sba-text-gray-500 hover:sba-underline" data-index="' + idx + '">↓</button>';
+				html += '<span class="sba-mx-1">|</span>';
+				html += '<button type="button" class="sb-defaultform-field-edit sba-text-blue-600 hover:sba-underline" data-index="' + idx + '">編集</button>';
+				html += '<span class="sba-mx-1">|</span>';
+				html += '<button type="button" class="sb-defaultform-field-delete sba-text-blue-600 hover:sba-underline" data-index="' + idx + '">削除</button>';
+				html += '</span>';
+				html += '</div></li>';
+			});
+			$listEl.html(html || '<li class="sba-text-gray-500 sba-py-2">項目がありません。</li>');
+		}
+
+		// 初期状態
+		renderList();
+
+		function syncHidden() {
+			setFormFields(getFormFields());
+		}
+
+		$form.on('submit', function () {
+			// 念のため現在の状態をhiddenに反映
+			syncHidden();
+		});
+
+		// イベント: 新規追加
+		$panel.on('click', '.sb-defaultform-field-add', function () {
+			editIndex = -1;
+			$('#sb-defaultform-field-id').val('').prop('readonly', false);
+			$('#sb-defaultform-field-label').val('');
+			$('#sb-defaultform-field-placeholder').val('');
+			$('input[name="sb_defaultform_field_required"][value="1"]').prop('checked', true);
+			$('#sb-defaultform-field-type').val('text');
+			$('#sb-defaultform-field-custom').val('');
+			fillOptionsList(['']);
+			toggleOptionsWrap();
+			showEditView('新規項目を追加');
+		});
+
+		// イベント: 編集
+		$panel.on('click', '.sb-defaultform-field-edit', function () {
+			var idx = parseInt($(this).data('index'), 10);
+			var fields = getFormFields();
+			if (idx < 0 || idx >= fields.length) return;
+			var f = fields[idx];
+			editIndex = idx;
+			$('#sb-defaultform-field-id').val(f.id).prop('readonly', true);
+			$('#sb-defaultform-field-label').val(f.label || '');
+			$('#sb-defaultform-field-placeholder').val(f.placeholder || '');
+			$('input[name="sb_defaultform_field_required"]').prop('checked', false).filter('[value="' + (f.required ? '1' : '0') + '"]').prop('checked', true);
+			$('#sb-defaultform-field-type').val(f.type || 'text');
+			$('#sb-defaultform-field-custom').val(f.custom_attributes || '');
+			fillOptionsList(f.options && f.options.length ? f.options : ['']);
+			toggleOptionsWrap();
+			showEditView('項目を編集');
+		});
+
+		// イベント: 削除
+		$panel.on('click', '.sb-defaultform-field-delete', function () {
+			var idx = parseInt($(this).data('index'), 10);
+			var fields = getFormFields();
+			if (idx < 0 || idx >= fields.length) return;
+			if (!confirm('この項目を削除してもよろしいですか？')) return;
+			fields = fields.slice(0, idx).concat(fields.slice(idx + 1));
+			setFormFields(fields);
+			renderList();
+		});
+
+		// キャンセル
+		$panel.on('click', '.sb-defaultform-edit-cancel', function () {
+			hideEditView();
+		});
+
+		// タイプ変更でオプション欄の表示切り替え
+		$panel.on('change', '#sb-defaultform-field-type', function () {
+			toggleOptionsWrap();
+		});
+
+		// オプション追加・削除
+		$panel.on('click', '.sb-defaultform-option-add', function () {
+			$('#sb-defaultform-field-options-wrap .sb-defaultform-options-list').append(
+				'<div class="sba-flex sba-gap-2 sba-items-center"><input type="text" class="sb-defaultform-option-input sba-flex-1 sba-border sba-border-gray-300 sba-rounded sba-p-2" value="" /><button type="button" class="button button-small sb-defaultform-option-remove">削除</button></div>'
+			);
+		});
+
+		$panel.on('click', '.sb-defaultform-option-remove', function () {
+			$(this).closest('.sba-flex').remove();
+		});
+
+		// 保存
+		$panel.on('click', '.sb-defaultform-field-save', function () {
+			var id = $('#sb-defaultform-field-id').val().trim().replace(/\s+/g, '_');
+			var label = $('#sb-defaultform-field-label').val().trim();
+			var type = $('#sb-defaultform-field-type').val();
+			if (!id) {
+				alert('ユニークIDを入力してください。');
+				return;
+			}
+			if (!/^[a-zA-Z0-9_]+$/.test(id)) {
+				alert('ユニークIDは半角英数字・アンダースコアのみ使用できます。');
+				return;
+			}
+			if (!label) {
+				alert('項目名を入力してください。');
+				return;
+			}
+			if (type === 'select' || type === 'checkbox' || type === 'radio') {
+				var opts = getOptionsFromForm();
+				if (!opts.length) {
+					alert('選択肢を1つ以上入力してください。');
+					return;
+				}
+			}
+			var fields = getFormFields().slice();
+			var customRaw = $('#sb-defaultform-field-custom').val().trim();
+			var customSanitized = customRaw ? customRaw.replace(/"/g, '`') : '';
+			var newField = {
+				id: id,
+				label: label,
+				placeholder: $('#sb-defaultform-field-placeholder').val().trim(),
+				required: $('input[name="sb_defaultform_field_required"]:checked').val() === '1',
+				type: type,
+				options: (type === 'select' || type === 'checkbox' || type === 'radio') ? getOptionsFromForm() : [],
+				custom_attributes: customSanitized
+			};
+			if (editIndex >= 0) {
+				fields[editIndex] = newField;
+			} else {
+				var exists = fields.some(function (f) { return f.id === id; });
+				if (exists) {
+					alert('このユニークIDは既に使用されています。');
+					return;
+				}
+				fields.push(newField);
+			}
+			setFormFields(fields);
+			renderList();
+			hideEditView();
+		});
+
+		// 並び替え（スマホ対応: ↑↓ボタン）
+		$panel.on('click', '.sb-defaultform-field-move-up', function () {
+			var idx = parseInt($(this).data('index'), 10);
+			var fields = getFormFields();
+			if (isNaN(idx) || idx <= 0 || idx >= fields.length) return;
+			var tmp = fields[idx - 1];
+			fields[idx - 1] = fields[idx];
+			fields[idx] = tmp;
+			setFormFields(fields);
+			renderList();
+		});
+
+		$panel.on('click', '.sb-defaultform-field-move-down', function () {
+			var idx = parseInt($(this).data('index'), 10);
+			var fields = getFormFields();
+			if (isNaN(idx) || idx < 0 || idx >= fields.length - 1) return;
+			var tmp = fields[idx + 1];
+			fields[idx + 1] = fields[idx];
+			fields[idx] = tmp;
+			setFormFields(fields);
+			renderList();
+		});
+	});
+
 	$(document).on('click', '.sb-settings-tab-btn', function () {
 		var tab = $(this).data('sb-tab');
 		if (!tab) return;
