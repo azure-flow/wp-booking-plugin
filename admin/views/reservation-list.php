@@ -170,7 +170,7 @@ $list_url = admin_url('admin.php?page=' . Sinmido_Booking_Admin::PAGE_RESERVATIO
 									</div>
 								</div>
 							</td>
-							<td class="column-event sba-text-nowrap sba-whitespace-nowrap sba-overflow-hidden sba-mr-4"><span class="sp-table-th">イベント名</span><?php echo esc_html($event_name); ?></td>
+							<td class="column-event sba-text-nowrap sba-truncate sba-mr-4"><span class="sp-table-th">イベント名</span><?php echo esc_html($event_name); ?></td>
 							<td class="column-confirmed"><span class="sp-table-th">確定日</span><?php echo $confirmed_display; ?></td>
 							<td class="column-memo" <?php echo $memo_title ? ' title="' . $memo_title . '"' : ''; ?>><span class="sp-table-th">メモ</span><?php echo esc_html($memo_preview); ?></td>
 							<td class="column-date">

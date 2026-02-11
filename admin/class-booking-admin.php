@@ -228,7 +228,8 @@ class Sinmido_Booking_Admin
 		$settings  = array_merge(self::default_system_settings(), $options);
 		$blacklist = self::get_blacklist();
 		$form_url  = admin_url('admin-post.php?action=sinmido_booking_save_settings');
-		$back_url  = admin_url('admin.php?page=' . self::PAGE_SLUG);
+		// 戻る先は「予約状況」ページに統一
+		$back_url  = admin_url('admin.php?page=' . self::PAGE_RESERVATIONS);
 		$settings_dir = SINMIDO_BOOKING_PLUGIN_DIR . 'admin/views/settings';
 		include SINMIDO_BOOKING_PLUGIN_DIR . 'admin/views/settings.php';
 	}
@@ -415,7 +416,8 @@ class Sinmido_Booking_Admin
 		$event_id = isset($_POST['event_id']) ? (int) $_POST['event_id'] : 0;
 		$name     = isset($_POST['sb_event_name']) ? sanitize_text_field(wp_unslash($_POST['sb_event_name'])) : '';
 		if (empty($name)) {
-			wp_safe_redirect(add_query_arg(array('page' => self::PAGE_EDIT, 'error' => 'name'), admin_url('admin.php')));
+			// 名前エラー時もメインの予約管理メニューに戻す
+			wp_safe_redirect(add_query_arg(array('page' => self::PAGE_RESERVATIONS, 'error' => 'name'), admin_url('admin.php')));
 			exit;
 		}
 
@@ -440,7 +442,8 @@ class Sinmido_Booking_Admin
 		if ($event_id > 0) {
 			$post = get_post($event_id);
 			if (! $post || $post->post_type !== SINMIDO_BOOKING_CPT_EVENT) {
-				wp_safe_redirect(add_query_arg(array('page' => self::PAGE_SLUG, 'error' => 'invalid'), admin_url('admin.php')));
+				// 不正なIDの場合も予約状況へ
+				wp_safe_redirect(add_query_arg(array('page' => self::PAGE_RESERVATIONS, 'error' => 'invalid'), admin_url('admin.php')));
 				exit;
 			}
 			wp_update_post(

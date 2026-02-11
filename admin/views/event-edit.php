@@ -35,7 +35,7 @@ if (! is_array($schedule_slots)) {
 }
 
 $page_title = $is_edit ? __('イベントを編集', 'sinmido-booking') : __('新規カレンダー作成', 'sinmido-booking');
-$back_url   = admin_url('admin.php?page=' . Sinmido_Booking_Admin::PAGE_SLUG);
+$back_url   = admin_url('admin.php?page=' . Sinmido_Booking_Admin::PAGE_RESERVATIONS);
 $form_url   = admin_url('admin-post.php?action=sinmido_booking_save_event');
 $nonce      = wp_nonce_field('sinmido_booking_save_event', '_wpnonce', true, false);
 
