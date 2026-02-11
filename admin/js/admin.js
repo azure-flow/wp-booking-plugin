@@ -175,12 +175,43 @@
 			else $panel.removeData('sb-edit-date');
 		}
 
+		// --- Schedule modal (multiple time ranges) ---
+		var $slotRows = $('#sb-schedule-slot-rows');
+		var $rowTemplate = $slotRows.find('.sb-schedule-time-row').first().clone();
+
+		function getModalRows() {
+			return $slotRows.find('.sb-schedule-time-row');
+		}
+
+		function updateRowLabels() {
+			getModalRows().each(function (i) {
+				$(this).find('.sba-font-medium.sba-text-gray-700').first().text('開催時間 ' + (i + 1));
+			});
+		}
+
+		function addTimeRow(slotData) {
+			slotData = slotData || {};
+			var $row = $rowTemplate.clone();
+			$row.find('.sb-slot-time-start').val(slotData.time_start || '10:00');
+			$row.find('.sb-slot-time-end').val(slotData.time_end || '12:00');
+			$slotRows.append($row);
+			updateRowLabels();
+		}
+
+		function fillModalFromSlots(slots) {
+			$slotRows.empty();
+			if (slots && slots.length) {
+				slots.forEach(function (s) { addTimeRow(s); });
+				$('#sb-slot-interval').val(slots[0].interval_minutes || 60);
+				$('#sb-slot-groups').val(slots[0].max_concurrent || 1);
+				$('#sb-slot-duration').val(slots[0].duration_minutes || 60);
+			} else {
+				addTimeRow({});
+			}
+		}
+
 		function fillModalFromSlot(slot) {
-			$('#sb-slot-time-start').val(slot.time_start || '10:00');
-			$('#sb-slot-time-end').val(slot.time_end || '12:00');
-			$('#sb-slot-interval').val(slot.interval_minutes || 60);
-			$('#sb-slot-groups').val(slot.max_concurrent || 1);
-			$('#sb-slot-duration').val(slot.duration_minutes || 60);
+			fillModalFromSlots(slot ? [slot] : []);
 		}
 
 		function yearMonth() {
@@ -314,7 +345,7 @@
 				if (daySlots.length) {
 					setEditDate(dateStr);
 					setSelectedDates([dateStr]);
-					fillModalFromSlot(daySlots[0]);
+					fillModalFromSlots(daySlots);
 					$('#sb-schedule-slot-modal').removeClass('sba-hidden');
 				}
 			}
@@ -326,6 +357,7 @@
 				return;
 			}
 			setEditDate(null);
+			fillModalFromSlots([]);
 			$('#sb-schedule-slot-modal').removeClass('sba-hidden');
 		});
 
@@ -361,15 +393,41 @@
 			$('#sb-schedule-slot-modal').addClass('sba-hidden');
 		});
 
+		$('#sb-schedule-slot-modal').on('click', '.sb-schedule-add-time-row', function (e) {
+			e.preventDefault();
+			addTimeRow({});
+		});
+
+		$('#sb-schedule-slot-modal').on('click', '.sb-schedule-row-remove', function (e) {
+			e.preventDefault();
+			var $row = $(this).closest('.sb-schedule-time-row');
+			if (getModalRows().length <= 1) return;
+			$row.remove();
+			updateRowLabels();
+		});
+
 		$('#sb-schedule-slot-modal').find('.sba-bg-white.sba-rounded-lg').on('click', '.sb-schedule-slot-save', function (e) {
 			e.preventDefault();
 			e.stopPropagation();
-			var timeStart = $('#sb-slot-time-start').val();
-			var timeEnd = $('#sb-slot-time-end').val();
 			var interval = parseInt($('#sb-slot-interval').val(), 10) || 60;
 			var groups = parseInt($('#sb-slot-groups').val(), 10) || 1;
 			var duration = parseInt($('#sb-slot-duration').val(), 10) || 60;
-			if (!timeStart || !timeEnd) {
+			var rows = [];
+			getModalRows().each(function () {
+				var $r = $(this);
+				var timeStart = $r.find('.sb-slot-time-start').val();
+				var timeEnd = $r.find('.sb-slot-time-end').val();
+				if (timeStart && timeEnd) {
+					rows.push({
+						time_start: timeStart,
+						time_end: timeEnd,
+						interval_minutes: interval,
+						max_concurrent: groups,
+						duration_minutes: duration
+					});
+				}
+			});
+			if (!rows.length) {
 				alert('開催時間を選択してください。');
 				return;
 			}
@@ -377,13 +435,15 @@
 			var slots;
 			if (editDate) {
 				slots = getSlots().filter(function (s) { return s.date !== editDate; });
-				slots.push({
-					date: editDate,
-					time_start: timeStart,
-					time_end: timeEnd,
-					interval_minutes: interval,
-					max_concurrent: groups,
-					duration_minutes: duration
+				rows.forEach(function (row) {
+					slots.push({
+						date: editDate,
+						time_start: row.time_start,
+						time_end: row.time_end,
+						interval_minutes: row.interval_minutes,
+						max_concurrent: row.max_concurrent,
+						duration_minutes: row.duration_minutes
+					});
 				});
 				setEditDate(null);
 			} else {
@@ -392,16 +452,17 @@
 					alert('日付を選択してください。');
 					return;
 				}
-
 				slots = getSlots().filter(function (s) { return dates.indexOf(s.date) === -1; });
 				dates.forEach(function (dateStr) {
-					slots.push({
-						date: dateStr,
-						time_start: timeStart,
-						time_end: timeEnd,
-						interval_minutes: interval,
-						max_concurrent: groups,
-						duration_minutes: duration
+					rows.forEach(function (row) {
+						slots.push({
+							date: dateStr,
+							time_start: row.time_start,
+							time_end: row.time_end,
+							interval_minutes: row.interval_minutes,
+							max_concurrent: row.max_concurrent,
+							duration_minutes: row.duration_minutes
+						});
 					});
 				});
 				setSelectedDates([]);
@@ -488,9 +549,12 @@
 				html += '<li class="sb-form-field-item sba-border sba-border-gray-200 sba-rounded sba-p-3 sba-bg-gray-50" data-index="' + idx + '">';
 				html += '<div class="sba-flex sba-items-center sba-justify-between">';
 				html += '<span class="sba-font-medium">' + label + (f.required ? ' *' : '') + '</span>';
-				html += '<span class="sba-text-sm">';
+				html += '<span class="sba-text-sm sba-flex sba-items-center sba-gap-2">';
+				html += '<button type="button" class="sb-form-field-move-up sba-text-gray-500 hover:sba-underline" data-index="' + idx + '">↑</button>';
+				html += '<button type="button" class="sb-form-field-move-down sba-text-gray-500 hover:sba-underline" data-index="' + idx + '">↓</button>';
+				html += '<span class="sba-mx-1">|</span>';
 				html += '<button type="button" class="sb-form-field-edit sba-text-blue-600 hover:sba-underline" data-index="' + idx + '">編集</button>';
-				html += ' <span class="sba-mx-1">|</span> ';
+				html += '<span class="sba-mx-1">|</span>';
 				html += '<button type="button" class="sb-form-field-delete sba-text-blue-600 hover:sba-underline" data-index="' + idx + '">削除</button>';
 				html += '</span>';
 				html += '</div></li>';
@@ -651,6 +715,29 @@
 
 		ensureInitialFormFields();
 		renderList();
+
+		// Fallback reordering for touch devices: move up/down buttons
+		$formPanel.on('click', '.sb-form-field-move-up', function () {
+			var idx = parseInt($(this).data('index'), 10);
+			var fields = getFormFields();
+			if (isNaN(idx) || idx <= 0 || idx >= fields.length) return;
+			var tmp = fields[idx - 1];
+			fields[idx - 1] = fields[idx];
+			fields[idx] = tmp;
+			setFormFields(fields);
+			renderList();
+		});
+
+		$formPanel.on('click', '.sb-form-field-move-down', function () {
+			var idx = parseInt($(this).data('index'), 10);
+			var fields = getFormFields();
+			if (isNaN(idx) || idx < 0 || idx >= fields.length - 1) return;
+			var tmp = fields[idx + 1];
+			fields[idx + 1] = fields[idx];
+			fields[idx] = tmp;
+			setFormFields(fields);
+			renderList();
+		});
 	});
 
 	$(document).on('click', '.sb-settings-tab-btn', function () {
@@ -709,7 +796,7 @@
 				sbBlacklistData.forEach(function (row, idx) {
 					html += '<tr class="sb-blacklist-row" data-index="' + idx + '">' +
 						'<th scope="row" class="check-column"><input type="checkbox" class="sb-blacklist-cb" value="' + idx + '" /></th>' +
-						'<td class="column-email"><strong>' + (row.email ? escapeHtml(row.email) : '—') + '</strong>' +
+						'<td class="column-email"><div class="sba-inline-block"><strong>' + (row.email ? escapeHtml(row.email) : '—') + '</strong>' +
 						'<div class="row-actions"><span class="edit"><a href="#" class="sb-blacklist-edit">編集</a></span>' +
 						'<span class="separator">|</span><span class="trash"><a href="#" class="sb-blacklist-delete submitdelete">削除</a></span></div></td>' +
 						'<td class="column-phone">' + (row.phone ? escapeHtml(row.phone) : '—') + '</td>' +

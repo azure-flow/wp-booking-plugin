@@ -2,7 +2,7 @@
 
 if (! defined('ABSPATH')) exit;
 ?>
-<div class="sb-settings-panel sba-border sba-border-gray-200 sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="external" id="sb-panel-settings-external">
+<div class="sb-settings-panel sba-border sba-bg-white sba-border-gray-200 sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="external" id="sb-panel-settings-external">
 	<h2 class="sba-text-lg sba-font-medium sba-mb-4"><?php esc_html_e('外部サービス連携', 'sinmido-booking'); ?></h2>
 
 	<div class="sba-mb-8">

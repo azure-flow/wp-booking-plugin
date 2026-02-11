@@ -2,7 +2,7 @@
 
 if (! defined('ABSPATH')) exit;
 ?>
-<div class="sb-settings-panel sba-border sba-border-gray-200 sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="email" id="sb-panel-settings-email">
+<div class="sb-settings-panel sba-border sba-bg-white sba-border-gray-200 sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="email" id="sb-panel-settings-email">
 	<h2 class="sba-text-lg sba-font-medium sba-mb-4"><?php esc_html_e('自動返信メール設定', 'sinmido-booking'); ?></h2>
 	<p class="description sba-mb-4"><?php esc_html_e('ここでは自動返信メールのテンプレートを編集できます。以下のメールタグが利用できます: [DateAndTime] [Date] [Time] [name] [phone] [email] など。', 'sinmido-booking'); ?></p>
 	<table class="form-table" role="presentation">
@@ -10,11 +10,11 @@ if (! defined('ABSPATH')) exit;
 			<tr>
 				<th scope="row"><?php esc_html_e('予約時にメール送信', 'sinmido-booking'); ?></th>
 				<td>
-					<label class="sba-inline-flex sba-items-center sba-mr-6">
+					<label class="sba-inline-flex sba-items-center sba-py-1 sba-mr-6">
 						<input type="checkbox" name="sb_notify_on_booking" value="1" <?php checked( ! empty( $settings['notify_on_booking'] ) ); ?> />
 						<span class="sba-ml-1"><?php esc_html_e('管理者に通知する', 'sinmido-booking'); ?></span>
 					</label>
-					<label class="sba-inline-flex sba-items-center">
+					<label class="sba-inline-flex sba-items-center sba-py-1">
 						<input type="checkbox" name="sb_send_confirm_email" value="1" <?php checked( ! empty( $settings['send_confirm_email'] ) ); ?> />
 						<span class="sba-ml-1"><?php esc_html_e('顧客に自動返信する', 'sinmido-booking'); ?></span>
 					</label>
@@ -35,7 +35,7 @@ if (! defined('ABSPATH')) exit;
 	<table class="form-table" role="presentation">
 		<tbody>
 			<tr>
-				<th scope="row"><?php esc_html_e('SMTPを使う', 'sinmido-booking'); ?></th>
+				<th scope="row" class="sba-inline-block"><?php esc_html_e('SMTPを使う', 'sinmido-booking'); ?></th>
 				<td>
 					<label class="sba-inline-flex sba-items-center">
 						<input type="checkbox" name="sb_use_smtp" value="1" <?php checked( ! empty( $settings['use_smtp'] ) ); ?> />

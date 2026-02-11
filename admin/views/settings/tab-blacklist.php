@@ -2,7 +2,7 @@
 
 if (! defined('ABSPATH')) exit;
 ?>
-<div class="sb-settings-panel sba-border sba-border-gray-200 sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="blacklist" id="sb-panel-settings-blacklist">
+<div class="sb-settings-panel sba-border sba-bg-white sba-border-gray-200 sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="blacklist" id="sb-panel-settings-blacklist">
 	<h2 class="sba-text-lg sba-font-medium sba-mb-4"><?php esc_html_e('ブラックリスト', 'sinmido-booking'); ?></h2>
 	<p class="description sba-mb-4"><?php esc_html_e('メールアドレスまたは電話番号で登録できます。いずれか一方、または両方を入力してください。予約時にどちらかが一致すると「要注意」として記録されます。', 'sinmido-booking'); ?></p>
 	<div class="tablenav top sba-mb-2">
@@ -27,17 +27,21 @@ if (! defined('ABSPATH')) exit;
 		</thead>
 		<tbody id="sb-blacklist-tbody">
 			<?php if (empty($blacklist)) : ?>
-				<tr><td colspan="5" class="sba-text-gray-500"><?php esc_html_e('登録がありません。', 'sinmido-booking'); ?></td></tr>
+				<tr>
+					<td colspan="5" class="sba-text-gray-500"><?php esc_html_e('登録がありません。', 'sinmido-booking'); ?></td>
+				</tr>
 			<?php else : ?>
 				<?php foreach ($blacklist as $idx => $row) : ?>
 					<tr class="sb-blacklist-row" data-index="<?php echo (int) $idx; ?>">
 						<th scope="row" class="check-column"><input type="checkbox" class="sb-blacklist-cb" value="<?php echo (int) $idx; ?>" /></th>
 						<td class="column-email">
-							<strong><?php echo esc_html($row['email'] ?: '—'); ?></strong>
-							<div class="row-actions">
-								<span class="edit"><a href="#" class="sb-blacklist-edit"><?php esc_html_e('編集', 'sinmido-booking'); ?></a></span>
-								<span class="separator">|</span>
-								<span class="trash"><a href="#" class="sb-blacklist-delete submitdelete"><?php esc_html_e('削除', 'sinmido-booking'); ?></a></span>
+							<div class="sba-inline-block">
+								<strong><?php echo esc_html($row['email'] ?: '—'); ?></strong>
+								<div class="row-actions">
+									<span class="edit"><a href="#" class="sb-blacklist-edit"><?php esc_html_e('編集', 'sinmido-booking'); ?></a></span>
+									<span class="separator">|</span>
+									<span class="trash"><a href="#" class="sb-blacklist-delete submitdelete"><?php esc_html_e('削除', 'sinmido-booking'); ?></a></span>
+								</div>
 							</div>
 						</td>
 						<td class="column-phone"><?php echo esc_html(! empty($row['phone']) ? $row['phone'] : '—'); ?></td>
@@ -74,4 +78,6 @@ if (! defined('ABSPATH')) exit;
 		</div>
 	</div>
 </div>
-<script type="text/javascript">window.sbBlacklistInitial = <?php echo wp_json_encode($blacklist, JSON_UNESCAPED_UNICODE); ?>;</script>
+<script type="text/javascript">
+	window.sbBlacklistInitial = <?php echo wp_json_encode($blacklist, JSON_UNESCAPED_UNICODE); ?>;
+</script>

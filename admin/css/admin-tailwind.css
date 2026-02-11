@@ -1736,6 +1736,12 @@ video {
 .sinmido-booking-wrap .sba-pt-8 {
   padding-top: 2rem;
 }
+.sinmido-booking-wrap .sba-text-nowrap {
+  white-space: nowrap;
+}
+.sinmido-booking-wrap .sba-whitespace-nowrap {
+  white-space: nowrap;
+}
 .sinmido-booking-wrap .sba-text-left {
   text-align: left;
 }

@@ -4,7 +4,7 @@ if (! defined('ABSPATH')) {
 	exit;
 }
 ?>
-<div class="sb-tab-panel sba-bg-white sba-border sba-border-gray-200 sba-rounded-lg sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="schedule" id="sb-panel-schedule">
+<div class="sb-tab-panel sba-bg-white sba-border sba-border-gray-200 sba-rounded-sm sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="schedule" id="sb-panel-schedule">
 	<div class="sb-schedule-view-select sba-mb-4">
 		<button type="button" class="button button-primary sb-schedule-add-slot"><?php esc_html_e('時間枠を追加', 'sinmido-booking'); ?></button>
 		<button type="button" class="button sb-schedule-delete-select sba-ml-2"><?php esc_html_e('削除', 'sinmido-booking'); ?></button>
@@ -37,34 +37,37 @@ if (! defined('ABSPATH')) {
 </div>
 
 <div id="sb-schedule-slot-modal" class="sb-modal sba-fixed sba-inset-0 sba-bg-black sba-bg-opacity-50 sba-hidden sba-flex sba-items-center sba-justify-center sba-z-50" role="dialog" aria-labelledby="sb-schedule-slot-modal-title">
-	<div class="sba-bg-white sba-rounded-lg sba-shadow-xl sba-max-w-md sba-w-full sba-mx-4 sba-p-6">
+	<div class="sba-bg-white sba-rounded-lg sba-shadow-xl sba-max-w-lg sba-w-full sba-mx-4 sba-p-6 sba-max-h-[90vh] sba-overflow-y-auto">
 		<div class="sba-flex sba-justify-between sba-items-center sba-mb-4">
 			<h2 id="sb-schedule-slot-modal-title" class="sba-text-lg sba-font-semibold sba-m-0"><?php esc_html_e('時間枠を設定', 'sinmido-booking'); ?></h2>
 			<button type="button" class="sb-modal-close sba-text-gray-500 hover:sba-text-gray-700 sba-text-2xl sba-leading-none" aria-label="<?php esc_attr_e('閉じる', 'sinmido-booking'); ?>">&times;</button>
 		</div>
-		<div class="sba-space-y-4">
-			<div>
-				<label class="sba-block sba-font-medium sba-mb-1"><?php esc_html_e('開催時間', 'sinmido-booking'); ?><span class="required sba-pl-2">*</span></label>
-				<div class="sba-flex sba-items-center sba-gap-2">
-					<select id="sb-slot-time-start" class="sba-border sba-border-gray-300 sba-rounded sba-p-2 sba-flex-1">
-						<?php for ($h = 0; $h < 24; $h++) : for ($m = 0; $m < 60; $m += 30) : $t = sprintf('%02d:%02d', $h, $m); ?>
-								<option value="<?php echo esc_attr($t); ?>" <?php selected($t, '10:00'); ?>><?php echo esc_html($t); ?></option>
-						<?php endfor;
-						endfor; ?>
-					</select>
-					<span>~</span>
-					<select id="sb-slot-time-end" class="sba-border sba-border-gray-300 sba-rounded sba-p-2 sba-flex-1">
-						<?php for ($h = 0; $h < 24; $h++) : for ($m = 0; $m < 60; $m += 30) : $t = sprintf('%02d:%02d', $h, $m); ?>
-								<option value="<?php echo esc_attr($t); ?>" <?php selected($t, '12:00'); ?>><?php echo esc_html($t); ?></option>
-						<?php endfor;
-						endfor; ?>
-					</select>
-				</div>
+		<p class="description sba-mb-3"><?php esc_html_e('複数の開催時間を追加できます。下の「予約の受付間隔」等はすべての時間帯で共通です。', 'sinmido-booking'); ?></p>
+		<div id="sb-schedule-slot-rows" class="sba-space-y-3">
+			<div class="sb-schedule-time-row sba-flex sba-items-center sba-gap-2 sba-flex-wrap" data-row="0">
+				<span class="sba-font-medium sba-text-gray-700 sba-w-16"><?php esc_html_e('開催時間', 'sinmido-booking'); ?> 1</span>
+				<select class="sb-slot-time-start sba-border sba-border-gray-300 sba-rounded sba-py-1 sba-px-2" style="min-width:5rem;">
+					<?php for ($h = 0; $h < 24; $h++) : for ($m = 0; $m < 60; $m += 30) : $t = sprintf('%02d:%02d', $h, $m); ?>
+						<option value="<?php echo esc_attr($t); ?>" <?php selected($t, '10:00'); ?>><?php echo esc_html($t); ?></option>
+					<?php endfor; endfor; ?>
+				</select>
+				<span>~</span>
+				<select class="sb-slot-time-end sba-border sba-border-gray-300 sba-rounded sba-py-1 sba-px-2" style="min-width:5rem;">
+					<?php for ($h = 0; $h < 24; $h++) : for ($m = 0; $m < 60; $m += 30) : $t = sprintf('%02d:%02d', $h, $m); ?>
+						<option value="<?php echo esc_attr($t); ?>" <?php selected($t, '12:00'); ?>><?php echo esc_html($t); ?></option>
+					<?php endfor; endfor; ?>
+				</select>
+				<button type="button" class="sb-schedule-row-remove button sba-text-red-600 hover:sba-text-red-800" aria-label="<?php esc_attr_e('削除', 'sinmido-booking'); ?>"><?php esc_html_e('削除', 'sinmido-booking'); ?></button>
 			</div>
-			<div>
-				<label class="sba-block sba-font-medium sba-mb-1"><?php esc_html_e('予約の受付間隔・同時受付可能組数', 'sinmido-booking'); ?> *</label>
+		</div>
+		<div class="sba-mt-3">
+			<button type="button" class="button sb-schedule-add-time-row"><?php esc_html_e('開催時間を追加', 'sinmido-booking'); ?></button>
+		</div>
+		<div class="sba-mt-4 sba-pt-4 sba-border-t sba-border-gray-200">
+			<div class="sba-mb-3">
+				<label class="sba-block sba-font-medium sba-mb-1"><?php esc_html_e('予約の受付間隔・同時受付可能組数', 'sinmido-booking'); ?> * <span class="sba-text-gray-500 sba-font-normal">(<?php esc_html_e('全時間帯共通', 'sinmido-booking'); ?>)</span></label>
 				<div class="sba-flex sba-flex-wrap sba-items-center sba-gap-1">
-					<select id="sb-slot-interval" class="sba-border sba-border-gray-300 sba-rounded sba-p-2">
+					<select id="sb-slot-interval" class="sba-border sba-border-gray-300 sba-rounded sba-py-1 sba-px-2">
 						<option value="15">15<?php esc_html_e('分', 'sinmido-booking'); ?></option>
 						<option value="30">30<?php esc_html_e('分', 'sinmido-booking'); ?></option>
 						<option value="60" selected>1<?php esc_html_e('時間', 'sinmido-booking'); ?></option>
@@ -72,7 +75,7 @@ if (! defined('ABSPATH')) {
 						<option value="120">2<?php esc_html_e('時間', 'sinmido-booking'); ?></option>
 					</select>
 					<span>ごとに</span>
-					<select id="sb-slot-groups" class="sba-border sba-border-gray-300 sba-rounded sba-p-2">
+					<select id="sb-slot-groups" class="sba-border sba-border-gray-300 sba-rounded sba-py-1 sba-px-2 sba-pr-4">
 						<?php for ($g = 1; $g <= 10; $g++) : ?>
 							<option value="<?php echo $g; ?>" <?php selected($g, 1); ?>><?php echo $g; ?>組</option>
 						<?php endfor; ?>
@@ -81,10 +84,10 @@ if (! defined('ABSPATH')) {
 				</div>
 			</div>
 			<div>
-				<label class="sba-block sba-font-medium sba-mb-1"><?php esc_html_e('所領時間', 'sinmido-booking'); ?> *</label>
+				<label class="sba-block sba-font-medium sba-mb-1"><?php esc_html_e('所要時間', 'sinmido-booking'); ?> * <span class="sba-text-gray-500 sba-font-normal">(<?php esc_html_e('全時間帯共通', 'sinmido-booking'); ?>)</span></label>
 				<div class="sba-flex sba-items-center sba-gap-1">
 					<input type="number" id="sb-slot-duration" class="sba-border sba-border-gray-300 sba-rounded sba-p-2 sba-w-20" value="60" min="1" max="480" />
-					<span>分かかる</span>
+					<span>分</span>
 				</div>
 			</div>
 		</div>

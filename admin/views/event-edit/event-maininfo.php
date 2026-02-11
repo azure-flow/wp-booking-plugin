@@ -6,7 +6,7 @@ if (! defined('ABSPATH')) {
 	exit;
 }
 ?>
-<div class="sb-tab-panel sba-border sba-border-gray-200 sba-rounded-sm sba-p-6 sba-mb-6" data-sb-panel="maininfo" id="sb-panel-maininfo">
+<div class="sb-tab-panel sba-border sba-bg-white sba-border-gray-200 sba-rounded-sm sba-p-6 sba-mb-6" data-sb-panel="maininfo" id="sb-panel-maininfo">
 	<table class="form-table" role="presentation">
 		<tr>
 			<th scope="row"><label for="sb_event_name"><?php esc_html_e('イベント名', 'sinmido-booking'); ?> <span class="required">*</span></label></th>

@@ -103,7 +103,7 @@ $list_url = admin_url('admin.php?page=' . Sinmido_Booking_Admin::PAGE_RESERVATIO
 						);
 						$status_label = Sinmido_Booking_Admin::get_reservation_status_label($status);
 						$confirmed_display = '—';
-						if ( $status === 'confirmed' ) {
+						if ($status === 'confirmed') {
 							if ($confirmed_date && $confirmed_time_start && $confirmed_time_end) {
 								$day_ja = array(
 									'Sun' => '日',
@@ -140,8 +140,8 @@ $list_url = admin_url('admin.php?page=' . Sinmido_Booking_Admin::PAGE_RESERVATIO
 								$confirmed_display = $confirmed_str;
 							}
 						}
-						$is_provisional = ( $status === 'tentative' );
-						if ( $is_provisional ) {
+						$is_provisional = ($status === 'tentative');
+						if ($is_provisional) {
 							$memo_preview = '—';
 							$memo_title   = '';
 						} else {
@@ -154,22 +154,27 @@ $list_url = admin_url('admin.php?page=' . Sinmido_Booking_Admin::PAGE_RESERVATIO
 								<input type="checkbox" name="reservation_ids[]" value="<?php echo (int) $rid; ?>" class="sb-reservation-cb" />
 							</th>
 							<td class="column-status">
+								<span class="sp-table-th">状況</span>
 								<span class="sb-reservation-status sb-status-<?php echo esc_attr($status); ?>"><?php echo esc_html($status_label); ?></span>
 							</td>
 							<td class="column-customer">
-								<strong><a href="<?php echo esc_url($detail_url); ?>"><?php echo esc_html($name); ?> <?php esc_html_e('様', 'sinmido-booking'); ?></a></strong>
-								<div class="row-actions">
-									<span class="view"><a href="<?php echo esc_url($detail_url); ?>"><?php esc_html_e('確認', 'sinmido-booking'); ?></a></span>
-									<span class="separator">|</span>
-									<span class="edit"><a href="<?php echo esc_url($detail_url); ?>"><?php esc_html_e('編集', 'sinmido-booking'); ?></a></span>
-									<span class="separator">|</span>
-									<span class="trash"><a href="<?php echo esc_url($delete_url); ?>" class="submitdelete sb-delete-reservation"><?php esc_html_e('削除', 'sinmido-booking'); ?></a></span>
+								<span class="sp-table-th">お客様名</span>
+								<div class="sba-inline-block">
+									<strong><a href="<?php echo esc_url($detail_url); ?>"><?php echo esc_html($name); ?> <?php esc_html_e('様', 'sinmido-booking'); ?></a></strong>
+									<div class="row-actions">
+										<span class="view"><a href="<?php echo esc_url($detail_url); ?>"><?php esc_html_e('確認', 'sinmido-booking'); ?></a></span>
+										<span class="separator">|</span>
+										<span class="edit"><a href="<?php echo esc_url($detail_url); ?>"><?php esc_html_e('編集', 'sinmido-booking'); ?></a></span>
+										<span class="separator">|</span>
+										<span class="trash"><a href="<?php echo esc_url($delete_url); ?>" class="submitdelete sb-delete-reservation"><?php esc_html_e('削除', 'sinmido-booking'); ?></a></span>
+									</div>
 								</div>
 							</td>
-							<td class="column-event"><?php echo esc_html($event_name); ?></td>
-							<td class="column-confirmed"><?php echo $confirmed_display; ?></td>
-							<td class="column-memo" <?php echo $memo_title ? ' title="' . $memo_title . '"' : ''; ?>><?php echo esc_html($memo_preview); ?></td>
+							<td class="column-event sba-text-nowrap sba-whitespace-nowrap sba-overflow-hidden sba-mr-4"><span class="sp-table-th">イベント名</span><?php echo esc_html($event_name); ?></td>
+							<td class="column-confirmed"><span class="sp-table-th">確定日</span><?php echo $confirmed_display; ?></td>
+							<td class="column-memo" <?php echo $memo_title ? ' title="' . $memo_title . '"' : ''; ?>><span class="sp-table-th">メモ</span><?php echo esc_html($memo_preview); ?></td>
 							<td class="column-date">
+								<span class="sp-table-th">日付</span>
 								<span class="sb-date-label"><?php esc_html_e('受付日', 'sinmido-booking'); ?></span><br />
 								<?php echo esc_html(date_i18n(__('Y年n月j日 g:i A', 'sinmido-booking'), strtotime($reservation->post_date))); ?>
 							</td>

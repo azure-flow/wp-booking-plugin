@@ -6,7 +6,7 @@ if (! defined('ABSPATH')) {
 	exit;
 }
 ?>
-<div class="sb-tab-panel sba-bg-white sba-border sba-border-gray-200 sba-rounded-lg sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="formsetting" id="sb-panel-formsetting">
+<div class="sb-tab-panel sba-bg-white sba-border sba-border-gray-200 sba-rounded-sm sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="formsetting" id="sb-panel-formsetting">
 	<div class="sb-form-setting-list-view">
 		<p class="sba-mb-4">
 			<button type="button" class="button button-primary sb-form-field-add"><?php esc_html_e('新規項目を追加', 'sinmido-booking'); ?></button>

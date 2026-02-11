@@ -4,7 +4,7 @@ if (! defined('ABSPATH')) exit;
 $holidays = isset($settings['regular_holidays']) && is_array($settings['regular_holidays']) ? $settings['regular_holidays'] : array();
 $days = array(1 => __('月', 'sinmido-booking'), 2 => __('火', 'sinmido-booking'), 3 => __('水', 'sinmido-booking'), 4 => __('木', 'sinmido-booking'), 5 => __('金', 'sinmido-booking'), 6 => __('土', 'sinmido-booking'), 0 => __('日', 'sinmido-booking'));
 ?>
-<div class="sb-settings-panel sba-border sba-border-gray-200 sba-p-6 sba-mb-6" data-sb-panel="general" id="sb-panel-settings-general">
+<div class="sb-settings-panel sba-border sba-bg-white sba-border-gray-200 sba-p-6 sba-mb-6" data-sb-panel="general" id="sb-panel-settings-general">
 	<h2 class="sba-text-lg sba-font-medium sba-mb-4"><?php esc_html_e('一般設定', 'sinmido-booking'); ?></h2>
 	<table class="form-table" role="presentation">
 		<tbody>
@@ -34,7 +34,7 @@ $days = array(1 => __('月', 'sinmido-booking'), 2 => __('火', 'sinmido-booking
 				<td>
 					<fieldset>
 						<label class="sba-block sba-mb-2">
-							<input type="radio" name="sb_deadline_type" value="days_before" <?php checked($settings['deadline_type'], 'days_before'); ?> />
+							<input type="radio" name="sb_deadline_type" class="sba-my-1" value="days_before" <?php checked($settings['deadline_type'], 'days_before'); ?> />
 							<select name="sb_deadline_days_before" class="sba-mx-1 sba-border sba-border-gray-300 sba-rounded sba-p-1 sba-pr-6">
 								<?php for ($d = 0; $d <= 30; $d++) : ?>
 									<option value="<?php echo $d; ?>" <?php selected((int)$settings['deadline_days_before'], $d); ?>><?php echo $d; ?>日前</option>
@@ -49,7 +49,7 @@ $days = array(1 => __('月', 'sinmido-booking'), 2 => __('火', 'sinmido-booking
 							に締め切る
 						</label>
 						<label class="sba-block">
-							<input type="radio" name="sb_deadline_type" value="hours_before" <?php checked($settings['deadline_type'], 'hours_before'); ?> />
+							<input type="radio" name="sb_deadline_type" class="sba-my-1" value="hours_before" <?php checked($settings['deadline_type'], 'hours_before'); ?> />
 							<select name="sb_deadline_hours_before" class="sba-mx-1 sba-border sba-border-gray-300 sba-rounded sba-p-1 sba-pr-6">
 								<?php for ($h = 0; $h <= 168; $h++) : ?>
 									<option value="<?php echo $h; ?>" <?php selected((int)$settings['deadline_hours_before'], $h); ?>><?php echo $h; ?></option>
