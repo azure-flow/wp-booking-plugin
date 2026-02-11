@@ -352,10 +352,25 @@
 		});
 
 		$panel.on('click', '.sb-schedule-add-slot', function () {
-			if (getSelectedDates().length === 0) {
+			var dates = getSelectedDates();
+			if (!dates.length) {
 				alert('日付を選択してください。');
 				return;
 			}
+
+			// 1日だけ選択されていて、既に時間枠がある場合はその日の編集として開く
+			if (dates.length === 1) {
+				var dateStr = dates[0];
+				var daySlots = slotsForDate(dateStr);
+				if (daySlots.length) {
+					setEditDate(dateStr);
+					fillModalFromSlots(daySlots);
+					$('#sb-schedule-slot-modal').removeClass('sba-hidden');
+					return;
+				}
+			}
+
+			// 複数日、または既存枠なしの場合は新規追加として空の行で開く
 			setEditDate(null);
 			fillModalFromSlots([]);
 			$('#sb-schedule-slot-modal').removeClass('sba-hidden');
@@ -689,6 +704,9 @@
 				}
 			}
 			var fields = getFormFields().slice();
+			// カスタム属性は保存時に " を ` に置き換える
+			var customRaw = $('#sb-form-field-custom').val().trim();
+			var customSanitized = customRaw ? customRaw.replace(/"/g, "'") : '';
 			var newField = {
 				id: id,
 				label: label,
@@ -696,7 +714,7 @@
 				required: $('input[name="sb_form_field_required"]:checked').val() === '1',
 				type: type,
 				options: (type === 'select' || type === 'checkbox' || type === 'radio') ? getOptionsFromForm() : [],
-				custom_attributes: $('#sb-form-field-custom').val().trim()
+				custom_attributes: customSanitized
 			};
 			if (editIndex >= 0) {
 				fields[editIndex] = newField;

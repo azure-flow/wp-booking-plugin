@@ -104,6 +104,51 @@
   padding: 20px 20px;
   text-align: center;
 }
+@media (max-width: 768px) {
+  .sb-calendar-grid {
+    font-size: 12px !important;
+  }
+  .sb-day-circle .sb-day-num {
+    font-size: 12px !important;
+  }
+  .sb-day-amount-reservation {
+    font-size: 10px !important;
+  }
+  .sinmido-booking-root {
+    padding: 0;
+  }
+  .sb-slots-section {
+    padding: 4px !important;
+  }
+  .sb-slots-table th,
+  .sb-slots-table td {
+    font-size: 12px !important;
+  }
+  .sb-btn-book {
+    font-size: 11px !important;
+    padding: 2px 4px !important;
+  }
+  .sb-calendar-grid th {
+    padding: 5px 6px;
+  }
+  .sb-calendar-grid td {
+    padding: 5px 5px;
+  }
+  .sb-form .sb-form-row {
+    flex-direction: column;
+    gap: 4px !important;
+    align-items: start !important;
+  }
+  .sb-form .sb-form-row label {
+    flex: 0 0 100% !important;
+    gap: 0 !important;
+  }
+  .sb-form .sb-form-row input,
+  .sb-form .sb-form-row textarea,
+  .sb-form .sb-form-row select {
+    width: 100% !important;
+  }
+}
 .sb-calendar-grid th {
   background: #f9fafb;
   color: #50575e;
