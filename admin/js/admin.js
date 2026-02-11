@@ -153,7 +153,6 @@
 		}
 
 		function getSelectionMode() {
-			// Always allow multiple-date selection mode
 			return true;
 		}
 
@@ -175,7 +174,6 @@
 			else $panel.removeData('sb-edit-date');
 		}
 
-		// --- Schedule modal (multiple time ranges) ---
 		var $slotRows = $('#sb-schedule-slot-rows');
 		var $rowTemplate = $slotRows.find('.sb-schedule-time-row').first().clone();
 
@@ -358,7 +356,6 @@
 				return;
 			}
 
-			// 1日だけ選択されていて、既に時間枠がある場合はその日の編集として開く
 			if (dates.length === 1) {
 				var dateStr = dates[0];
 				var daySlots = slotsForDate(dateStr);
@@ -370,7 +367,6 @@
 				}
 			}
 
-			// 複数日、または既存枠なしの場合は新規追加として空の行で開く
 			setEditDate(null);
 			fillModalFromSlots([]);
 			$('#sb-schedule-slot-modal').removeClass('sba-hidden');
@@ -704,7 +700,6 @@
 				}
 			}
 			var fields = getFormFields().slice();
-			// カスタム属性は保存時に " を ` に置き換える
 			var customRaw = $('#sb-form-field-custom').val().trim();
 			var customSanitized = customRaw ? customRaw.replace(/"/g, "'") : '';
 			var newField = {
@@ -734,7 +729,6 @@
 		ensureInitialFormFields();
 		renderList();
 
-		// Fallback reordering for touch devices: move up/down buttons
 		$formPanel.on('click', '.sb-form-field-move-up', function () {
 			var idx = parseInt($(this).data('index'), 10);
 			var fields = getFormFields();
@@ -758,7 +752,6 @@
 		});
 	});
 
-	// ====== システム設定: フォーム初期項目 ======
 	$(function () {
 		var $panel = $('#sb-panel-settings-formdefaults');
 		if (!$panel.length) return;
@@ -854,7 +847,6 @@
 			$listEl.html(html || '<li class="sba-text-gray-500 sba-py-2">項目がありません。</li>');
 		}
 
-		// 初期状態
 		renderList();
 
 		function syncHidden() {
@@ -862,11 +854,9 @@
 		}
 
 		$form.on('submit', function () {
-			// 念のため現在の状態をhiddenに反映
 			syncHidden();
 		});
 
-		// イベント: 新規追加
 		$panel.on('click', '.sb-defaultform-field-add', function () {
 			editIndex = -1;
 			$('#sb-defaultform-field-id').val('').prop('readonly', false);
@@ -880,7 +870,6 @@
 			showEditView('新規項目を追加');
 		});
 
-		// イベント: 編集
 		$panel.on('click', '.sb-defaultform-field-edit', function () {
 			var idx = parseInt($(this).data('index'), 10);
 			var fields = getFormFields();
@@ -898,7 +887,6 @@
 			showEditView('項目を編集');
 		});
 
-		// イベント: 削除
 		$panel.on('click', '.sb-defaultform-field-delete', function () {
 			var idx = parseInt($(this).data('index'), 10);
 			var fields = getFormFields();
@@ -909,17 +897,14 @@
 			renderList();
 		});
 
-		// キャンセル
 		$panel.on('click', '.sb-defaultform-edit-cancel', function () {
 			hideEditView();
 		});
 
-		// タイプ変更でオプション欄の表示切り替え
 		$panel.on('change', '#sb-defaultform-field-type', function () {
 			toggleOptionsWrap();
 		});
 
-		// オプション追加・削除
 		$panel.on('click', '.sb-defaultform-option-add', function () {
 			$('#sb-defaultform-field-options-wrap .sb-defaultform-options-list').append(
 				'<div class="sba-flex sba-gap-2 sba-items-center"><input type="text" class="sb-defaultform-option-input sba-flex-1 sba-border sba-border-gray-300 sba-rounded sba-p-2" value="" /><button type="button" class="button button-small sb-defaultform-option-remove">削除</button></div>'
@@ -930,7 +915,6 @@
 			$(this).closest('.sba-flex').remove();
 		});
 
-		// 保存
 		$panel.on('click', '.sb-defaultform-field-save', function () {
 			var id = $('#sb-defaultform-field-id').val().trim().replace(/\s+/g, '_');
 			var label = $('#sb-defaultform-field-label').val().trim();
@@ -981,7 +965,6 @@
 			hideEditView();
 		});
 
-		// 並び替え（スマホ対応: ↑↓ボタン）
 		$panel.on('click', '.sb-defaultform-field-move-up', function () {
 			var idx = parseInt($(this).data('index'), 10);
 			var fields = getFormFields();

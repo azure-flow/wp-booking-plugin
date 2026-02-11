@@ -105,7 +105,6 @@ class Sinmido_Booking_Event_CPT {
 
 	
 	public static function default_form_fields() {
-		// ハードコードされたデフォルト
 		$default = array(
 			array( 'id' => 'name',    'label' => 'お名前',       'required' => true,  'type' => 'text',     'placeholder' => '例：田中太郎' ),
 			array( 'id' => 'email',   'label' => 'メールアドレス', 'required' => true,  'type' => 'email',    'placeholder' => '' ),
@@ -113,7 +112,6 @@ class Sinmido_Booking_Event_CPT {
 			array( 'id' => 'remarks', 'label' => '備考',         'required' => false, 'type' => 'textarea', 'placeholder' => '' ),
 		);
 
-		// システム設定から上書き（フォーム初期項目タブ）
 		$sys = get_option( 'sinmido_booking_system_settings', array() );
 		if ( is_array( $sys ) && ! empty( $sys['default_form_fields'] ) && is_array( $sys['default_form_fields'] ) ) {
 			return $sys['default_form_fields'];

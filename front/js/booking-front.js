@@ -419,7 +419,6 @@
 			var isRadio = rawType === 'radio';
 			var fieldType = isSelect ? 'select' : (isCheckbox ? 'checkbox' : (isRadio ? 'radio' : rawType));
 			var required = f.required ? ' required' : '';
-			// custom_attributes は属性断片としてそのまま差し込む（ユーザーが " や ` を自由に使えるようにする）
 			var customAttr = f.custom_attributes ? ' ' + String(f.custom_attributes) : '';
 			if (fieldType === 'textarea') {
 				html += '<div class="sb-form-row"><label>' + label + '</label><textarea name="' + id + '" placeholder="' + placeholder.replace(/"/g, '&quot;') + '"' + required + customAttr + '></textarea></div>';
