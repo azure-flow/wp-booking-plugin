@@ -15,10 +15,10 @@
 
 .sinmido-booking-root .sb-form-choices {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 .sinmido-booking-root .sb-form-choices label {
-  flex: 0 0 !important;
+  flex: auto !important;
 }
 
 .sb-loading,
@@ -126,10 +126,16 @@
 .sb-day-available .sb-day-symbol {
   color: #15803d;
 }
+.sb-day-available .sb-day-amount-reservation {
+  color: #15803d;
+}
 .sb-day-few {
   background: #fefce8;
 }
 .sb-day-few .sb-day-symbol {
+  color: #a16207;
+}
+.sb-day-few .sb-day-amount-reservation {
   color: #a16207;
 }
 .sb-day-closed {
@@ -172,6 +178,13 @@
   display: block;
   font-size: 20px;
   margin-top: 4px;
+}
+.sb-day-amount-reservation {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  margin-top: 8px;
 }
 .sb-legend {
   margin-top: 1rem;
@@ -294,9 +307,9 @@
 .sb-form .sb-form-row textarea {
   align-self: flex-start;
 }
-.auto-filled input{
- color: #a1a1a1 !important;
- cursor: not-allowed;
+.auto-filled input {
+  color: #a1a1a1 !important;
+  cursor: not-allowed;
 }
 
 .sb-form input[type="text"],

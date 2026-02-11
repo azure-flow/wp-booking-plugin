@@ -24,7 +24,9 @@ if ($first_pref_raw !== '') {
 } else {
 	$first_pref = '—';
 }
-$admin_memo = get_post_meta($rid, '_sb_admin_memo', true) ?: '';
+$admin_memo_raw = get_post_meta($rid, '_sb_admin_memo', true) ?: '';
+$blacklist_memo  = get_post_meta($rid, '_sb_blacklist_memo', true) ?: '';
+$admin_memo = ( $admin_memo_raw !== '' ) ? $admin_memo_raw : $blacklist_memo;
 $custom_fields_json = get_post_meta($rid, '_sb_custom_fields', true) ?: '{}';
 $custom_values = is_string($custom_fields_json) ? json_decode($custom_fields_json, true) : array();
 if (! is_array($custom_values)) {
@@ -131,14 +133,15 @@ $status_options = Sinmido_Booking_Reservation_CPT::get_status_options();
 						<?php endforeach; ?>
 					</select>
 				</div>
-				<div class="sb-reservation-field">
+				<div class="sb-reservation-field sb-confirmed-date-field" id="sb-confirmed-date-block" style="<?php echo ( $status !== 'confirmed' ) ? 'display:none;' : ''; ?>">
 					<label><?php esc_html_e('確定日', 'sinmido-booking'); ?> <span class="required">*</span></label>
 					<div class="sba-flex sba-gap-2 sba-flex-wrap sba-items-center">
-						<input type="date" name="sb_confirmed_date" value="<?php echo esc_attr($confirmed_date); ?>" />
-						<input type="time" name="sb_confirmed_time_start" value="<?php echo esc_attr($confirmed_time_start); ?>" />
+						<input type="date" name="sb_confirmed_date" id="sb_confirmed_date" value="<?php echo esc_attr($confirmed_date); ?>" <?php echo ( $status !== 'confirmed' ) ? ' disabled' : ''; ?> />
+						<input type="time" name="sb_confirmed_time_start" id="sb_confirmed_time_start" value="<?php echo esc_attr($confirmed_time_start); ?>" <?php echo ( $status !== 'confirmed' ) ? ' disabled' : ''; ?> />
 						<span>~</span>
-						<input type="time" name="sb_confirmed_time_end" value="<?php echo esc_attr($confirmed_time_end); ?>" />
+						<input type="time" name="sb_confirmed_time_end" id="sb_confirmed_time_end" value="<?php echo esc_attr($confirmed_time_end); ?>" <?php echo ( $status !== 'confirmed' ) ? ' disabled' : ''; ?> />
 					</div>
+					<p class="description"><?php esc_html_e('ステータスを「確定」にした場合のみ編集できます。', 'sinmido-booking'); ?></p>
 				</div>
 				<div class="sb-reservation-field">
 					<label for="sb_reservation_admin_memo"><?php esc_html_e('メモ', 'sinmido-booking'); ?></label>

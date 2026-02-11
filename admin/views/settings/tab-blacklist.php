@@ -4,6 +4,7 @@ if (! defined('ABSPATH')) exit;
 ?>
 <div class="sb-settings-panel sba-border sba-border-gray-200 sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="blacklist" id="sb-panel-settings-blacklist">
 	<h2 class="sba-text-lg sba-font-medium sba-mb-4"><?php esc_html_e('ブラックリスト', 'sinmido-booking'); ?></h2>
+	<p class="description sba-mb-4"><?php esc_html_e('メールアドレスまたは電話番号で登録できます。いずれか一方、または両方を入力してください。予約時にどちらかが一致すると「要注意」として記録されます。', 'sinmido-booking'); ?></p>
 	<div class="tablenav top sba-mb-2">
 		<div class="alignleft actions">
 			<select id="sb-blacklist-bulk-action" class="sba-border sba-border-gray-300 sba-rounded sba-p-1">
@@ -55,11 +56,12 @@ if (! defined('ABSPATH')) exit;
 			<h3 class="sba-text-lg sba-font-medium sba-mb-4 sb-blacklist-modal-title"><?php esc_html_e('情報を追加', 'sinmido-booking'); ?></h3>
 			<p class="sba-mb-2">
 				<label for="sb-blacklist-modal-email" class="sba-block sba-font-medium"><?php esc_html_e('メールアドレス', 'sinmido-booking'); ?></label>
-				<input type="email" id="sb-blacklist-modal-email" class="sba-w-full sba-border sba-border-gray-300 sba-rounded sba-p-2" />
+				<input type="email" id="sb-blacklist-modal-email" class="sba-w-full sba-border sba-border-gray-300 sba-rounded sba-p-2" placeholder="<?php esc_attr_e('例: user@example.com', 'sinmido-booking'); ?>" />
 			</p>
 			<p class="sba-mb-2">
 				<label for="sb-blacklist-modal-phone" class="sba-block sba-font-medium"><?php esc_html_e('電話番号', 'sinmido-booking'); ?></label>
-				<input type="text" id="sb-blacklist-modal-phone" class="sba-w-full sba-border sba-border-gray-300 sba-rounded sba-p-2" />
+				<input type="text" id="sb-blacklist-modal-phone" class="sba-w-full sba-border sba-border-gray-300 sba-rounded sba-p-2" placeholder="<?php esc_attr_e('例: 090-1234-5678', 'sinmido-booking'); ?>" />
+				<span class="description"><?php esc_html_e('メールアドレスと電話番号のどちらか一方、または両方を入力してください。', 'sinmido-booking'); ?></span>
 			</p>
 			<p class="sba-mb-4">
 				<label for="sb-blacklist-modal-memo" class="sba-block sba-font-medium"><?php esc_html_e('メモ', 'sinmido-booking'); ?></label>

@@ -218,12 +218,13 @@
 		for (var d = 1; d <= daysInMonth; d++) {
 			var dk = dateKey(year, month, d);
 			if (dk < todayKey) {
-				cells.push({ day: d, dateKey: dk, currentMonth: true, status: 'none' });
+				cells.push({ day: d, dateKey: dk, currentMonth: true, status: 'none', remaining: null });
 				continue;
 			}
 			var info = availability && availability[dk];
 			var status = info ? info.status : 'none';
-			cells.push({ day: d, dateKey: dk, currentMonth: true, status: status });
+			var remaining = (info && typeof info.remaining === 'number') ? info.remaining : null;
+			cells.push({ day: d, dateKey: dk, currentMonth: true, status: status, remaining: remaining });
 		}
 		var remaining = 7 - (cells.length % 7);
 		if (remaining < 7) {
@@ -232,6 +233,7 @@
 			}
 		}
 
+		var showRemaining = !!(settings && settings.show_remaining_slots);
 		var row = [];
 		for (var i = 0; i < cells.length; i++) {
 			var c = cells[i];
@@ -247,11 +249,17 @@
 			if (isInquiry) cls += ' sb-day-inquiry';
 			if (selectedDate === c.dateKey) cls += ' sb-day-selected';
 			var symbol = getStatusSymbol(c.status);
+			var displayValue = symbol;
+			var showAmount = showRemaining && c.currentMonth && (c.status === 'available' || c.status === 'few' || c.status === 'full') && c.remaining !== null;
+			if (showAmount) {
+				displayValue = String(c.remaining);
+			}
+			var amountOrSymbolClass = showAmount ? 'sb-day-amount-reservation' : 'sb-day-symbol';
 			var numHtml = hasCircle
 				? '<span class="sb-day-circle"><span class="sb-day-num">' + c.day + '</span></span>'
 				: '<span class="sb-day-num">' + c.day + '</span>';
 			row.push('<td class="' + cls + '" data-date="' + c.dateKey + '" data-status="' + c.status + '">' +
-				numHtml + '<span class="sb-day-symbol">' + symbol + '</span></td>');
+				numHtml + '<span class="' + amountOrSymbolClass + '">' + displayValue + '</span></td>');
 			if (row.length === 7) {
 				html += '<tr>' + row.join('') + '</tr>';
 				row = [];
@@ -359,6 +367,12 @@
 				showForm(root, eventId, eventName, formFields, date, btn.getAttribute('data-time-start'), btn.getAttribute('data-time-end'));
 			});
 		});
+		var section = wrap.querySelector('.sb-slots-section');
+		if (section && section.scrollIntoView) {
+			requestAnimationFrame(function () {
+				section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+		}
 	}
 
 	function loadAndShowSlots(root, eventId, eventName, settings, date) {
@@ -449,6 +463,11 @@
 		html += '</form></div>';
 		formWrap.innerHTML = html;
 		formWrap.style.display = 'block';
+		if (formWrap.scrollIntoView) {
+			requestAnimationFrame(function () {
+				formWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+		}
 
 		formWrap.querySelector('.sb-form').addEventListener('submit', function (e) {
 			e.preventDefault();

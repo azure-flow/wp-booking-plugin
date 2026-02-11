@@ -82,6 +82,25 @@
 		return true;
 	});
 
+	$(document).on('change', '#sb_reservation_status', function () {
+		var status = $(this).val();
+		var $block = $('#sb-confirmed-date-block');
+		var $date = $('#sb_confirmed_date');
+		var $start = $('#sb_confirmed_time_start');
+		var $end = $('#sb_confirmed_time_end');
+		if (status === 'confirmed') {
+			$block.show();
+			$date.prop('disabled', false);
+			$start.prop('disabled', false);
+			$end.prop('disabled', false);
+		} else {
+			$block.hide();
+			$date.prop('disabled', true);
+			$start.prop('disabled', true);
+			$end.prop('disabled', true);
+		}
+	});
+
 	$(document).on('click', '.sb-tab-btn', function () {
 		var tab = $(this).data('sb-tab');
 		if (!tab) return;

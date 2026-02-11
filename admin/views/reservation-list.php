@@ -103,34 +103,51 @@ $list_url = admin_url('admin.php?page=' . Sinmido_Booking_Admin::PAGE_RESERVATIO
 						);
 						$status_label = Sinmido_Booking_Admin::get_reservation_status_label($status);
 						$confirmed_display = '—';
-						if ($confirmed_date && $confirmed_time_start && $confirmed_time_end) {
-							$ts = strtotime($confirmed_date . ' ' . $confirmed_time_start);
-							$day_ja = array(
-								'Sun' => '日',
-								'Mon' => '月',
-								'Tue' => '火',
-								'Wed' => '水',
-								'Thu' => '木',
-								'Fri' => '金',
-								'Sat' => '土',
-							);
-							$format = 'n月j日(D)';
-							$confirmed_str = date_i18n($format, $ts);
-							$confirmed_str = preg_replace_callback('/\(([A-Za-z]{3})\)/', function ($m) use ($day_ja) {
-								return isset($day_ja[$m[1]]) ? '(' . $day_ja[$m[1]] . ')' : $m[0];
-							}, $confirmed_str);
-							$confirmed_display = $confirmed_str . ' ' . $confirmed_time_start . ' ~ ' . $confirmed_time_end;
-						} elseif ($confirmed_date) {
-							$ts = strtotime($confirmed_date);
-							$format = 'n月j日(D)';
-							$confirmed_str = date_i18n($format, $ts);
-							$confirmed_str = preg_replace_callback('/\(([A-Za-z]{3})\)/', function ($m) use ($day_ja) {
-								return isset($day_ja[$m[1]]) ? '(' . $day_ja[$m[1]] . ')' : $m[0];
-							}, $confirmed_str);
-							$confirmed_display = $confirmed_str;
+						if ( $status === 'confirmed' ) {
+							if ($confirmed_date && $confirmed_time_start && $confirmed_time_end) {
+								$day_ja = array(
+									'Sun' => '日',
+									'Mon' => '月',
+									'Tue' => '火',
+									'Wed' => '水',
+									'Thu' => '木',
+									'Fri' => '金',
+									'Sat' => '土',
+								);
+								$ts = strtotime($confirmed_date . ' ' . $confirmed_time_start);
+								$format = 'n月j日(D)';
+								$confirmed_str = date_i18n($format, $ts);
+								$confirmed_str = preg_replace_callback('/\(([A-Za-z]{3})\)/', function ($m) use ($day_ja) {
+									return isset($day_ja[$m[1]]) ? '(' . $day_ja[$m[1]] . ')' : $m[0];
+								}, $confirmed_str);
+								$confirmed_display = $confirmed_str . ' ' . $confirmed_time_start . ' ~ ' . $confirmed_time_end;
+							} elseif ($confirmed_date) {
+								$day_ja = array(
+									'Sun' => '日',
+									'Mon' => '月',
+									'Tue' => '火',
+									'Wed' => '水',
+									'Thu' => '木',
+									'Fri' => '金',
+									'Sat' => '土',
+								);
+								$ts = strtotime($confirmed_date);
+								$format = 'n月j日(D)';
+								$confirmed_str = date_i18n($format, $ts);
+								$confirmed_str = preg_replace_callback('/\(([A-Za-z]{3})\)/', function ($m) use ($day_ja) {
+									return isset($day_ja[$m[1]]) ? '(' . $day_ja[$m[1]] . ')' : $m[0];
+								}, $confirmed_str);
+								$confirmed_display = $confirmed_str;
+							}
 						}
-						$memo_preview = $memo_text !== '' ? mb_strimwidth($memo_text, 0, 75, '...') : '—';
-						$memo_title   = $memo_text !== '' ? esc_attr($memo_text) : '';
+						$is_provisional = ( $status === 'tentative' );
+						if ( $is_provisional ) {
+							$memo_preview = '—';
+							$memo_title   = '';
+						} else {
+							$memo_preview = $memo_text !== '' ? mb_strimwidth($memo_text, 0, 75, '...') : '—';
+							$memo_title   = $memo_text !== '' ? esc_attr($memo_text) : '';
+						}
 						?>
 						<tr>
 							<th scope="row" class="check-column">

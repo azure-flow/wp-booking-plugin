@@ -199,7 +199,6 @@ class Sinmido_Booking_Admin
 			'customer_sender_name' => '',
 			'customer_subject'     => '',
 			'customer_body'        => '',
-
 			'use_smtp'             => false,
 			'smtp_host'            => '',
 			'smtp_port'            => 587,
@@ -667,11 +666,14 @@ class Sinmido_Booking_Admin
 		update_post_meta($reservation_id, '_sb_email', $email);
 		update_post_meta($reservation_id, '_sb_phone', $phone);
 		update_post_meta($reservation_id, '_sb_status', $status);
-		update_post_meta($reservation_id, '_sb_confirmed_date', $confirmed_date);
-		update_post_meta($reservation_id, '_sb_confirmed_time_start', $confirmed_time_start);
-		update_post_meta($reservation_id, '_sb_confirmed_time_end', $confirmed_time_end);
+		if ( $status === 'confirmed' ) {
+			update_post_meta($reservation_id, '_sb_confirmed_date', $confirmed_date);
+			update_post_meta($reservation_id, '_sb_confirmed_time_start', $confirmed_time_start);
+			update_post_meta($reservation_id, '_sb_confirmed_time_end', $confirmed_time_end);
+		}
 		update_post_meta($reservation_id, '_sb_remarks', $remarks);
 		update_post_meta($reservation_id, '_sb_admin_memo', $admin_memo);
+		update_post_meta($reservation_id, '_sb_blacklist_memo', $admin_memo);
 		update_post_meta($reservation_id, '_sb_custom_fields', wp_json_encode($custom_fields, JSON_UNESCAPED_UNICODE));
 		wp_safe_redirect(add_query_arg(array('page' => self::PAGE_RESERVATION_EDIT, 'reservation_id' => $reservation_id, 'saved' => '1'), admin_url('admin.php')));
 		exit;

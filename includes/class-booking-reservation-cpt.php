@@ -58,6 +58,7 @@ class Sinmido_Booking_Reservation_CPT {
 			'_sb_confirmed_time_start'  => 'string',
 			'_sb_confirmed_time_end'    => 'string',
 			'_sb_admin_memo'            => 'string',
+			'_sb_blacklist_memo'        => 'string',
 		);
 
 		foreach ($meta_keys as $key => $type) {
@@ -84,7 +85,7 @@ class Sinmido_Booking_Reservation_CPT {
 		if ($meta_key === '_sb_custom_fields' && is_string($value)) {
 			return $value;
 		}
-		if (in_array($meta_key, array('_sb_remarks', '_sb_admin_memo'), true)) {
+		if (in_array($meta_key, array('_sb_remarks', '_sb_admin_memo', '_sb_blacklist_memo'), true)) {
 			return sanitize_textarea_field($value);
 		}
 		if ($meta_key === '_sb_email') {

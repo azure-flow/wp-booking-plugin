@@ -583,14 +583,14 @@ class Sinmido_Booking_REST
 
 		$blacklist = Sinmido_Booking_Admin::get_blacklist();
 		$email_n   = strtolower(trim($email));
-		$phone_n   = preg_replace('/\s+/', '', $phone);
+		$phone_n   = preg_replace('/[^\d+]/', '', $phone);
 		$is_warning = false;
 		$blacklist_memo = '';
 		foreach ($blacklist as $row) {
 			$bl_email = isset($row['email']) ? strtolower(trim((string) $row['email'])) : '';
-			$bl_phone = isset($row['phone']) ? preg_replace('/\s+/', '', (string) $row['phone']) : '';
+			$bl_phone = isset($row['phone']) ? preg_replace('/[^\d+]/', '', (string) $row['phone']) : '';
 			$bl_memo  = isset($row['memo']) ? (string) $row['memo'] : '';
-			if ($bl_email !== '' && $email_n === $bl_email) {
+			if ($bl_email !== '' && $email_n !== '' && $email_n === $bl_email) {
 				$is_warning    = true;
 				$blacklist_memo = $bl_memo;
 				break;
