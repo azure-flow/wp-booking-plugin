@@ -5,12 +5,8 @@ if (! defined('ABSPATH')) {
 }
 ?>
 <div class="sb-tab-panel sba-bg-white sba-border sba-border-gray-200 sba-rounded-lg sba-p-6 sba-mb-6 sba-hidden" data-sb-panel="schedule" id="sb-panel-schedule">
-	<div class="sb-schedule-view-default sba-mb-4">
-		<button type="button" class="button button-primary sb-schedule-enter-select"><?php esc_html_e('複数の日を選択', 'sinmido-booking'); ?></button>
-	</div>
-	<div class="sb-schedule-view-select sba-mb-4 sba-hidden">
+	<div class="sb-schedule-view-select sba-mb-4">
 		<button type="button" class="button button-primary sb-schedule-add-slot"><?php esc_html_e('時間枠を追加', 'sinmido-booking'); ?></button>
-		<button type="button" class="button sb-schedule-cancel-select sba-ml-2 bg-danger sba-text-whtie"><?php esc_html_e('キャンセル', 'sinmido-booking'); ?></button>
 		<button type="button" class="button sb-schedule-delete-select sba-ml-2"><?php esc_html_e('削除', 'sinmido-booking'); ?></button>
 		<p class="description sba-mt-2 sba-mb-0"><?php esc_html_e('予約時間枠の追加、削除したい日を複数選んでください。', 'sinmido-booking'); ?></p>
 	</div>

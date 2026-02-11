@@ -30,6 +30,7 @@ class Sinmido_Booking_Admin
 		add_action('admin_post_sinmido_booking_delete_reservation', array($this, 'handle_delete_reservation'));
 		add_action('admin_post_sinmido_booking_bulk_action_reservations', array($this, 'handle_bulk_action_reservations'));
 		add_action('admin_post_sinmido_booking_new_reservation', array($this, 'handle_new_reservation'));
+		add_filter('submenu_file', array($this, 'filter_submenu_file'), 10, 2);
 	}
 
 
@@ -48,8 +49,8 @@ class Sinmido_Booking_Admin
 			self::PAGE_RESERVATIONS,
 			__('予約状況', 'sinmido-booking'),
 			__('予約状況', 'sinmido-booking'),
-			'edit_posts',
 			self::PAGE_RESERVATIONS,
+			'edit_posts',
 			array($this, 'render_reservations_page')
 		);
 		add_submenu_page(
@@ -78,7 +79,7 @@ class Sinmido_Booking_Admin
 		);
 
 		add_submenu_page(
-			self::PAGE_SLUG,
+			self::PAGE_RESERVATIONS,
 			__('予約詳細', 'sinmido-booking'),
 			'',
 			'edit_posts',
@@ -90,9 +91,9 @@ class Sinmido_Booking_Admin
 
 	public function enqueue_assets($hook_suffix)
 	{
-		$pages = array('toplevel_page_' . self::PAGE_RESERVATIONS, '予約管理_page_' . self::PAGE_EDIT);
+		$pages = array('toplevel_page_' . self::PAGE_SLUG, '予約管理_page_' . self::PAGE_EDIT);
 		$load   = false;
-		if (strpos($hook_suffix, self::PAGE_RESERVATIONS) !== false) {
+		if (strpos($hook_suffix, self::PAGE_SLUG) !== false) {
 			$load = true;
 		}
 		if (! $load) {
@@ -129,6 +130,15 @@ class Sinmido_Booking_Admin
 	{
 		$events = $this->get_events();
 		include SINMIDO_BOOKING_PLUGIN_DIR . 'admin/views/event-list.php';
+	}
+
+
+	public function filter_submenu_file($submenu_file, $parent_file)
+	{
+		if ($parent_file === self::PAGE_RESERVATIONS && isset($_GET['page']) && $_GET['page'] === self::PAGE_RESERVATION_EDIT) {
+			return self::PAGE_RESERVATIONS;
+		}
+		return $submenu_file;
 	}
 
 
@@ -181,10 +191,12 @@ class Sinmido_Booking_Admin
 			'mail_format'           => 'html',
 			'admin_recipient'       => '',
 			'admin_sender'          => '',
+			'admin_sender_name'     => '',
 			'admin_subject'        => '',
 			'admin_body'            => '',
 			'customer_recipient'   => '',
 			'customer_sender'      => '',
+			'customer_sender_name' => '',
 			'customer_subject'     => '',
 			'customer_body'        => '',
 
@@ -217,7 +229,7 @@ class Sinmido_Booking_Admin
 		$settings  = array_merge(self::default_system_settings(), $options);
 		$blacklist = self::get_blacklist();
 		$form_url  = admin_url('admin-post.php?action=sinmido_booking_save_settings');
-		$back_url  = admin_url('admin.php?page=' . self::PAGE_RESERVATIONS);
+		$back_url  = admin_url('admin.php?page=' . self::PAGE_SLUG);
 		$settings_dir = SINMIDO_BOOKING_PLUGIN_DIR . 'admin/views/settings';
 		include SINMIDO_BOOKING_PLUGIN_DIR . 'admin/views/settings.php';
 	}
@@ -250,10 +262,12 @@ class Sinmido_Booking_Admin
 			'mail_format'           => isset($_POST['sb_mail_format']) && $_POST['sb_mail_format'] === 'text' ? 'text' : 'html',
 			'admin_recipient'       => isset($_POST['sb_admin_recipient']) ? sanitize_text_field(wp_unslash($_POST['sb_admin_recipient'])) : '',
 			'admin_sender'          => isset($_POST['sb_admin_sender']) ? sanitize_text_field(wp_unslash($_POST['sb_admin_sender'])) : '',
+			'admin_sender_name'     => isset($_POST['sb_admin_sender_name']) ? sanitize_text_field(wp_unslash($_POST['sb_admin_sender_name'])) : '',
 			'admin_subject'         => isset($_POST['sb_admin_subject']) ? sanitize_text_field(wp_unslash($_POST['sb_admin_subject'])) : '',
 			'admin_body'            => isset($_POST['sb_admin_body']) ? wp_kses_post(wp_unslash($_POST['sb_admin_body'])) : '',
 			'customer_recipient'    => isset($_POST['sb_customer_recipient']) ? sanitize_text_field(wp_unslash($_POST['sb_customer_recipient'])) : '',
 			'customer_sender'      => isset($_POST['sb_customer_sender']) ? sanitize_text_field(wp_unslash($_POST['sb_customer_sender'])) : '',
+			'customer_sender_name' => isset($_POST['sb_customer_sender_name']) ? sanitize_text_field(wp_unslash($_POST['sb_customer_sender_name'])) : '',
 			'customer_subject'      => isset($_POST['sb_customer_subject']) ? sanitize_text_field(wp_unslash($_POST['sb_customer_subject'])) : '',
 			'customer_body'         => isset($_POST['sb_customer_body']) ? wp_kses_post(wp_unslash($_POST['sb_customer_body'])) : '',
 			'use_smtp'              => ! empty($_POST['sb_use_smtp']),
@@ -427,7 +441,7 @@ class Sinmido_Booking_Admin
 		if ($event_id > 0) {
 			$post = get_post($event_id);
 			if (! $post || $post->post_type !== SINMIDO_BOOKING_CPT_EVENT) {
-				wp_safe_redirect(add_query_arg(array('page' => self::PAGE_LIST, 'error' => 'invalid'), admin_url('admin.php')));
+				wp_safe_redirect(add_query_arg(array('page' => self::PAGE_SLUG, 'error' => 'invalid'), admin_url('admin.php')));
 				exit;
 			}
 			wp_update_post(
@@ -561,7 +575,7 @@ class Sinmido_Booking_Admin
 		$ids    = array_filter($ids);
 
 		if (empty($ids) || ($action !== 'delete' && $action !== 'duplicate')) {
-			wp_safe_redirect(add_query_arg(array('page' => self::PAGE_LIST, 'error' => 'bulk_none'), admin_url('admin.php')));
+			wp_safe_redirect(add_query_arg(array('page' => self::PAGE_RESERVATIONS, 'error' => 'bulk_none'), admin_url('admin.php')));
 			exit;
 		}
 
@@ -583,7 +597,7 @@ class Sinmido_Booking_Admin
 		}
 
 		$arg = $action === 'delete' ? 'bulk_deleted' : 'bulk_duplicated';
-		wp_safe_redirect(add_query_arg(array('page' => self::PAGE_LIST, $arg => $count), admin_url('admin.php')));
+		wp_safe_redirect(add_query_arg(array('page' => self::PAGE_RESERVATIONS, $arg => $count), admin_url('admin.php')));
 		exit;
 	}
 

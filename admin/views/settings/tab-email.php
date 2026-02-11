@@ -94,8 +94,18 @@ if (! defined('ABSPATH')) exit;
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="sb_admin_sender"><?php esc_html_e('送信元', 'sinmido-booking'); ?> *</label></th>
-				<td><input type="text" name="sb_admin_sender" id="sb_admin_sender" value="<?php echo esc_attr($settings['admin_sender']); ?>" class="large-text" /></td>
+				<th scope="row"><label for="sb_admin_sender_name"><?php esc_html_e('送信元表示名', 'sinmido-booking'); ?></label></th>
+				<td>
+					<input type="text" name="sb_admin_sender_name" id="sb_admin_sender_name" value="<?php echo esc_attr( isset( $settings['admin_sender_name'] ) ? $settings['admin_sender_name'] : '' ); ?>" class="large-text" placeholder="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+					<p class="description"><?php esc_html_e( 'メールの「差出人」に表示する名前。空欄の場合はサイト名を使用。', 'sinmido-booking' ); ?></p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="sb_admin_sender"><?php esc_html_e('送信元（上書き）', 'sinmido-booking'); ?></label></th>
+				<td>
+					<input type="text" name="sb_admin_sender" id="sb_admin_sender" value="<?php echo esc_attr($settings['admin_sender']); ?>" class="large-text" placeholder="例: 表示名 &lt;mail@example.com&gt;" />
+					<p class="description"><?php esc_html_e( '「表示名 &lt;メールアドレス&gt;」の形式で指定すると、表示名とアドレスをまとめて上書きします。空欄の場合は上記表示名と管理者メールアドレスを使用。', 'sinmido-booking' ); ?></p>
+				</td>
 			</tr>
 			<tr>
 				<th scope="row"><label for="sb_admin_subject"><?php esc_html_e('題名', 'sinmido-booking'); ?></label></th>
@@ -115,8 +125,18 @@ if (! defined('ABSPATH')) exit;
 				<td><input type="text" name="sb_customer_recipient" id="sb_customer_recipient" value="<?php echo esc_attr($settings['customer_recipient']); ?>" class="large-text" /></td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="sb_customer_sender"><?php esc_html_e('送信元', 'sinmido-booking'); ?> *</label></th>
-				<td><input type="text" name="sb_customer_sender" id="sb_customer_sender" value="<?php echo esc_attr($settings['customer_sender']); ?>" class="large-text" /></td>
+				<th scope="row"><label for="sb_customer_sender_name"><?php esc_html_e('送信元表示名', 'sinmido-booking'); ?></label></th>
+				<td>
+					<input type="text" name="sb_customer_sender_name" id="sb_customer_sender_name" value="<?php echo esc_attr( isset( $settings['customer_sender_name'] ) ? $settings['customer_sender_name'] : '' ); ?>" class="large-text" placeholder="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+					<p class="description"><?php esc_html_e( '顧客向けメールの「差出人」に表示する名前。空欄の場合はサイト名を使用。', 'sinmido-booking' ); ?></p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="sb_customer_sender"><?php esc_html_e('送信元（上書き）', 'sinmido-booking'); ?></label></th>
+				<td>
+					<input type="text" name="sb_customer_sender" id="sb_customer_sender" value="<?php echo esc_attr($settings['customer_sender']); ?>" class="large-text" placeholder="例: 表示名 &lt;mail@example.com&gt;" />
+					<p class="description"><?php esc_html_e( '「表示名 &lt;メールアドレス&gt;」の形式で指定すると上書きします。空欄の場合は上記表示名と管理者メールアドレスを使用。', 'sinmido-booking' ); ?></p>
+				</td>
 			</tr>
 			<tr>
 				<th scope="row"><label for="sb_customer_subject"><?php esc_html_e('題名', 'sinmido-booking'); ?></label></th>

@@ -43,7 +43,7 @@ if (! defined('ABSPATH')) {
 			</td>
 		</tr>
 		<tr>
-			<th scope="row"><label for="sb_redirect_after_booking">URL</label></th>
+			<th scope="row"><label for="sb_redirect_after_booking">サンクスページ</label></th>
 			<td>
 				<input type="url" name="sb_redirect_after_booking" id="sb_redirect_after_booking" value="<?php echo esc_attr($settings['redirect_after_booking']); ?>" class="large-text" placeholder="https://" />
 				<p class="description"><?php esc_html_e('予約完了後に指定した任意のページにリダイレクトすることができます。', 'sinmido-booking'); ?></p>

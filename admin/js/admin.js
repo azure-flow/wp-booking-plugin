@@ -134,7 +134,8 @@
 		}
 
 		function getSelectionMode() {
-			return $panel.find('.sb-schedule-view-select').hasClass('sba-hidden') === false;
+			// Always allow multiple-date selection mode
+			return true;
 		}
 
 		function getSelectedDates() {
@@ -277,8 +278,6 @@
 			var slots = getSlots().filter(function (s) { return dates.indexOf(s.date) === -1; });
 			setSlots(slots);
 			setSelectedDates([]);
-			$panel.find('.sb-schedule-view-select').addClass('sba-hidden');
-			$panel.find('.sb-schedule-view-default').removeClass('sba-hidden');
 			renderCalendar();
 		});
 
@@ -387,8 +386,6 @@
 					});
 				});
 				setSelectedDates([]);
-				$panel.find('.sb-schedule-view-select').addClass('sba-hidden');
-				$panel.find('.sb-schedule-view-default').removeClass('sba-hidden');
 			}
 			setSlots(slots);
 			$('#sb-schedule-slot-modal').addClass('sba-hidden');

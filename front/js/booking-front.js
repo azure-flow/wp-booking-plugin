@@ -157,6 +157,7 @@
 			case 'available': return SYMBOL_AVAILABLE;
 			case 'few': return SYMBOL_FEW;
 			case 'full': return SYMBOL_FULL;
+			case 'inquiry': return SYMBOL_INQUIRY;
 			case 'closed': return SYMBOL_NONE;
 			case 'none':
 			default: return SYMBOL_NONE;
@@ -176,11 +177,19 @@
 		var prevYear = month === 1 ? year - 1 : year;
 		var prevLast = new Date(prevYear, prevMonth, 0).getDate();
 		var contactPhone = (settings && settings.contact_phone) ? settings.contact_phone : '';
+		var inquiryPhone = (systemSettings && systemSettings.inquiry_phone) ? systemSettings.inquiry_phone : contactPhone;
 
 		var now = new Date();
 		var nowYear = now.getFullYear();
 		var nowMonth = now.getMonth() + 1;
 		var isPrevDisabled = (year < nowYear) || (year === nowYear && month <= nowMonth);
+		var minYear = root._sbCalendarMinYear;
+		var minMonth = root._sbCalendarMinMonth;
+		if (minYear != null && minMonth != null) {
+			if (year < minYear || (year === minYear && month <= minMonth)) {
+				isPrevDisabled = true;
+			}
+		}
 		var html = '<div class="sb-booking-calendar">';
 		html += '<div class="sb-calendar-header">';
 		html += '<button type="button" class="sb-btn sb-btn-prev" aria-label="前月"' + (isPrevDisabled ? ' disabled' : '') + '>' +
@@ -226,6 +235,7 @@
 		var row = [];
 		for (var i = 0; i < cells.length; i++) {
 			var c = cells[i];
+			var isInquiry = c.currentMonth && c.status === 'inquiry';
 			var clickable = c.currentMonth && (c.status === 'available' || c.status === 'few') && c.status !== 'closed';
 			var hasCircle = c.currentMonth && (c.status === 'available' || c.status === 'few');
 			var cls = 'sb-day';
@@ -234,6 +244,7 @@
 			if (c.status === 'closed') cls += ' sb-day-closed';
 			if (c.status === 'available') cls += ' sb-day-available';
 			if (c.status === 'few') cls += ' sb-day-few';
+			if (isInquiry) cls += ' sb-day-inquiry';
 			if (selectedDate === c.dateKey) cls += ' sb-day-selected';
 			var symbol = getStatusSymbol(c.status);
 			var numHtml = hasCircle
@@ -255,8 +266,8 @@
 		html += '<span>' + SYMBOL_FEW + ': 即予約可（残りわずか）</span>';
 		html += '<span>' + SYMBOL_NONE + ': 予約不可</span>';
 		html += '<span>' + SYMBOL_FULL + ': 予約一杯</span>';
-		if (contactPhone) {
-			html += '<span>' + SYMBOL_INQUIRY + ': 要問い合わせ (TEL.' + contactPhone + ')</span>';
+		if (inquiryPhone) {
+			html += '<span>' + SYMBOL_INQUIRY + ': 要問い合わせ (TEL.' + inquiryPhone + ')</span>';
 		}
 		html += '</div>';
 
@@ -285,17 +296,6 @@
 			var y = month === 12 ? year + 1 : year;
 			loadAndRenderCalendar(root, eventId, eventName, settings, y, m);
 		});
-		if (systemSettings.inquiry_mode === 'enabled') {
-			var notice = root.querySelector('.sb-inquiry-notice');
-			if (!notice) {
-				notice = document.createElement('div');
-				notice.className = 'sb-inquiry-notice';
-				var msg = '現在、予約を受け付けておりません。お問い合わせください。';
-				if (systemSettings.inquiry_phone) msg += ' TEL.' + systemSettings.inquiry_phone;
-				notice.textContent = msg;
-				root.insertBefore(notice, root.firstChild);
-			}
-		}
 		wrap.querySelectorAll('.sb-day-clickable').forEach(function (td) {
 			td.addEventListener('click', function () {
 				var date = td.getAttribute('data-date');
@@ -304,6 +304,16 @@
 				renderCalendar(root, eventId, eventName, settings, year, month, availability, systemSettings);
 			});
 		});
+		if (inquiryPhone) {
+			wrap.querySelectorAll('.sb-day-inquiry').forEach(function (td) {
+				td.addEventListener('click', function () {
+					var tel = inquiryPhone.replace(/[^0-9+]/g, '');
+					if (tel) {
+						window.location.href = 'tel:' + tel;
+					}
+				});
+			});
+		}
 	}
 
 	function loadAndRenderCalendar(root, eventId, eventName, settings, year, month) {
@@ -346,24 +356,12 @@
 
 		wrap.querySelectorAll('.sb-btn-book:not([disabled])').forEach(function (btn) {
 			btn.addEventListener('click', function () {
-				if ((root._sbSystemSettings || {}).inquiry_mode === 'enabled') {
-					var msg = '現在、予約を受け付けておりません。お問い合わせください。';
-					if (root._sbSystemSettings.inquiry_phone) msg += ' TEL.' + root._sbSystemSettings.inquiry_phone;
-					alert(msg);
-					return;
-				}
 				showForm(root, eventId, eventName, formFields, date, btn.getAttribute('data-time-start'), btn.getAttribute('data-time-end'));
 			});
 		});
 	}
 
 	function loadAndShowSlots(root, eventId, eventName, settings, date) {
-		if ((root._sbSystemSettings || {}).inquiry_mode === 'enabled') {
-			var msg = '現在、予約を受け付けておりません。お問い合わせください。';
-			if (root._sbSystemSettings.inquiry_phone) msg += ' TEL.' + root._sbSystemSettings.inquiry_phone;
-			alert(msg);
-			return;
-		}
 		var wrap = root.querySelector('.sb-slots-wrap');
 		if (wrap) wrap.innerHTML = '<p class="sb-loading">読み込み中...</p>';
 		apiFetch('/' + REST_NS + '/events/' + eventId + '/slots?date=' + encodeURIComponent(date), null, root)
@@ -393,8 +391,8 @@
 		html += '<input type="hidden" name="confirmed_date" value="' + date + '">';
 		html += '<input type="hidden" name="confirmed_time_start" value="' + timeStart + '">';
 		html += '<input type="hidden" name="confirmed_time_end" value="' + timeEnd + '">';
-		html += '<div class="sb-form-row"><label>参加希望イベント名 <span class="sb-required">必須</span></label><input type="text" readonly value="' + (eventName || '').replace(/"/g, '&quot;') + '"></div>';
-		html += '<div class="sb-form-row"><label>参加希望日時 <span class="sb-required">必須</span></label><input type="text" readonly value="' + dateTimeLabel.replace(/"/g, '&quot;') + '" placeholder="カレンダーから参加希望日を選択してください。"></div>';
+		html += '<div class="sb-form-row auto-filled"><label>参加希望イベント名 <span class="sb-required">自動入力</span></label><input type="text" readonly value="' + (eventName || '').replace(/"/g, '&quot;') + '"></div>';
+		html += '<div class="sb-form-row auto-filled"><label>参加希望日時 <span class="sb-required">自動入力</span></label><input type="text" readonly value="' + dateTimeLabel.replace(/"/g, '&quot;') + '" placeholder="カレンダーから参加希望日を選択してください。"></div>';
 		html += '<div class="sb-form-row"><label>第二希望日時（任意）</label><input type="text" name="second_preference" placeholder="例：2026/03/15 10:00~11:00"></div>';
 		(formFields || []).forEach(function (f) {
 			var id = f.id || ('field_' + Math.random().toString(36).slice(2));
@@ -558,16 +556,40 @@
 			var settings = event.settings || {};
 			var year;
 			var month;
+			root._sbCalendarMinYear = null;
+			root._sbCalendarMinMonth = null;
 			if (settings.fix_calendar_month && settings.fix_calendar_year && settings.fix_calendar_month_num) {
-				year = parseInt(settings.fix_calendar_year, 10) || (new Date()).getFullYear();
-				month = parseInt(settings.fix_calendar_month_num, 10) || ((new Date()).getMonth() + 1);
-				if (month < 1 || month > 12) {
-					month = (new Date()).getMonth() + 1;
+				var fixYear = parseInt(settings.fix_calendar_year, 10) || (new Date()).getFullYear();
+				var fixMonth = parseInt(settings.fix_calendar_month_num, 10) || ((new Date()).getMonth() + 1);
+				if (fixMonth < 1 || fixMonth > 12) fixMonth = (new Date()).getMonth() + 1;
+				year = fixYear;
+				month = fixMonth;
+				var eventDateStr = event.date;
+				if (eventDateStr && typeof eventDateStr === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(eventDateStr)) {
+					var eventYear = parseInt(eventDateStr.slice(0, 4), 10);
+					var eventMonth = parseInt(eventDateStr.slice(5, 7), 10);
+					if (eventMonth >= 1 && eventMonth <= 12) {
+						if (eventYear > year || (eventYear === year && eventMonth > month)) {
+							year = eventYear;
+							month = eventMonth;
+						}
+					}
 				}
+				root._sbCalendarMinYear = year;
+				root._sbCalendarMinMonth = month;
 			} else {
 				var now = new Date();
 				year = now.getFullYear();
 				month = now.getMonth() + 1;
+			}
+			var now = new Date();
+			var nowYear = now.getFullYear();
+			var nowMonth = now.getMonth() + 1;
+			if (root._sbCalendarMinYear != null && root._sbCalendarMinMonth != null) {
+				if (nowYear < root._sbCalendarMinYear || (nowYear === root._sbCalendarMinYear && nowMonth < root._sbCalendarMinMonth)) {
+					root.innerHTML = '<p class="sb-calendar-not-yet">上記イベントの予約は' + root._sbCalendarMinYear + '年' + root._sbCalendarMinMonth + '月よりご利用いただけます。</p>';
+					return;
+				}
 			}
 			loadAndRenderCalendar(root, eventId, event.name, settings, year, month);
 		}).catch(function (err) {

@@ -319,3 +319,12 @@
 .sb-reservation-detail-wrap .required {
   color: #d63638;
 }
+
+/* Hide hidden submenu entry (予約詳細) from admin menu to avoid blank space */
+// li.toplevel_page_sinmido-booking-reservations ul.wp-submenu li a[href*="page=sinmido-booking-reservation-edit"] {
+//   display: none;
+// }
+
+.toplevel_page_sinmido-booking-reservations .wp-submenu li a[href*="page=sinmido-booking-reservation-edit"] {
+  display: none !important;
+}

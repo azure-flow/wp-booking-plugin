@@ -283,7 +283,7 @@
   border-bottom: none;
 }
 .sb-form .sb-form-row label {
-  flex: 0 0 12rem;
+  flex: 0 0 13rem;
   font-size: 14px;
   font-weight: 500;
   color: #2d2d2d;
@@ -294,6 +294,11 @@
 .sb-form .sb-form-row textarea {
   align-self: flex-start;
 }
+.auto-filled input{
+ color: #a1a1a1 !important;
+ cursor: not-allowed;
+}
+
 .sb-form input[type="text"],
 .sb-form input[type="email"],
 .sb-form input[type="tel"],

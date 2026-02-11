@@ -94,7 +94,8 @@ $list_url = admin_url('admin.php?page=' . Sinmido_Booking_Admin::PAGE_RESERVATIO
 						$confirmed_time_end   = get_post_meta($rid, '_sb_confirmed_time_end', true);
 						$admin_memo = get_post_meta($rid, '_sb_admin_memo', true) ?: '';
 						$remarks     = get_post_meta($rid, '_sb_remarks', true) ?: '';
-						$memo_text   = $admin_memo !== '' ? $admin_memo : $remarks;
+						$black_memo  = get_post_meta($rid, '_sb_blacklist_memo', true) ?: '';
+						$memo_text   = $black_memo !== '' ? $black_memo : ($admin_memo !== '' ? $admin_memo : $remarks);
 						$detail_url = admin_url('admin.php?page=' . Sinmido_Booking_Admin::PAGE_RESERVATION_EDIT . '&reservation_id=' . $rid);
 						$delete_url = wp_nonce_url(
 							admin_url('admin-post.php?action=sinmido_booking_delete_reservation&reservation_id=' . $rid),
